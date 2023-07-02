@@ -1,0 +1,18 @@
+@inherits MvvmComponentBase<TextEntryViewModel>
+
+<MudCard>
+    <MudCardHeader>
+        <MudText Typo="Typo.h4">Text Entry</MudText>
+    </MudCardHeader>
+    <MudCardContent>
+        <MudTextField @bind-Value="ViewModel.AsciiText" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+    </MudCardContent>
+    <MudCardActions>
+        <MudButton OnClick="() => ViewModel.SendToHexConverterCommand.Execute(null)">Convert To Hex</MudButton>
+    </MudCardActions>
+</MudCard>
+
+@code
+{
+    public string TextValue { get; set; } = string.Empty;
+}

@@ -1,0 +1,13 @@
+@inherits MvvmComponentBase<HexEntryViewModel>
+
+<MudCard>
+    <MudCardHeader>
+        <MudText Typo="Typo.h4">Hex Entry</MudText>
+    </MudCardHeader>
+    <MudCardContent>
+        <MudTextField @bind-Value="@ViewModel.HexText" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+    </MudCardContent>
+    <MudCardActions>
+        <MudButton OnClick="() => ViewModel.SendToAsciiConverterCommand.Execute(null)">Convert To Ascii</MudButton>
+    </MudCardActions>
+</MudCard>

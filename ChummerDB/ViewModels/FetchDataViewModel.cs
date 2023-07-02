@@ -1,6 +1,5 @@
 using System.Collections.ObjectModel;
-using System.Net.Http.Json;
-using ChummerDB.Data;
+using ChummerDB.Backend.Data;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ChummerDB.ViewModels;

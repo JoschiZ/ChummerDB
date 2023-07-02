@@ -1,4 +1,4 @@
-namespace ChummerDB.Data;
+namespace ChummerDB.Backend.Data;
 
 public class WeatherForecast
 {

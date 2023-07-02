@@ -1,5 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
-using ChummerDB.Data;
+﻿using ChummerDB.Backend.Data;
+using Microsoft.Extensions.Logging;
 using ChummerDB.Models;
 using ChummerDB.ViewModels;
 using MudBlazor.Services;
@@ -26,9 +26,13 @@ public static class MauiProgram
         
         builder.Services.AddTransient<WeatherForecastService>();
         builder.Services.AddTransient<FetchDataViewModel>();
-        builder.Services.AddSingleton<ISpellsViewModel, SpellsViewModel>();
+        builder.Services.AddTransient<HexEntryViewModel>();
+        builder.Services.AddTransient<TextEntryViewModel>();
+        builder.Services.AddTransient<SpellsViewModel>();
         builder.Services.AddSingleton<ISpellsModel, SpellsModel>();
+        builder.Services.AddSingleton<XmlLoadManager>();
 
         return builder.Build();
     }
 }
+
