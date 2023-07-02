@@ -7,13 +7,15 @@ public class WeatherForecastService
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
-    public Task<WeatherForecast[]> GetForecastAsync(DateTime startDate)
+    public async Task<WeatherForecast[]> GetForecastAsync(DateTime startDate)
     {
-        return Task.FromResult(Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        await Task.Delay(5000);
+        var rng = new Random();
+        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
         {
             Date = startDate.AddDays(index),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        }).ToArray());
+            TemperatureC = rng.Next(-20, 55),
+            Summary = Summaries[rng.Next(Summaries.Length)]
+        }).ToArray();
     }
 }

@@ -1,5 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 using ChummerDB.Data;
+using ChummerDB.Models;
+using ChummerDB.ViewModels;
+using MudBlazor.Services;
 
 namespace ChummerDB;
 
@@ -11,15 +14,20 @@ public static class MauiProgram
         builder
             .UseMauiApp<App>()
             .ConfigureFonts(fonts => { fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular"); });
+        
 
         builder.Services.AddMauiBlazorWebView();
-
+        builder.Services.AddMudServices();
+        
 #if DEBUG
         builder.Services.AddBlazorWebViewDeveloperTools();
         builder.Logging.AddDebug();
 #endif
-
-        builder.Services.AddSingleton<WeatherForecastService>();
+        
+        builder.Services.AddTransient<WeatherForecastService>();
+        builder.Services.AddTransient<FetchDataViewModel>();
+        builder.Services.AddSingleton<ISpellsViewModel, SpellsViewModel>();
+        builder.Services.AddSingleton<ISpellsModel, SpellsModel>();
 
         return builder.Build();
     }

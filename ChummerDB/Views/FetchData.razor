@@ -1,13 +1,12 @@
 ﻿@page "/fetchdata"
+@inherits MvvmComponentBase<FetchDataViewModel>
 
-@using ChummerDB.Data
-@inject WeatherForecastService ForecastService
 
 <h1>Weather forecast</h1>
 
 <p>This component demonstrates fetching data from a service.</p>
 
-@if (forecasts == null)
+@if (!ViewModel.WeatherForecasts.Any())
 {
     <p>
         <em>Loading...</em>
@@ -25,7 +24,7 @@ else
         </tr>
         </thead>
         <tbody>
-        @foreach (var forecast in forecasts)
+        @foreach (var forecast in ViewModel.WeatherForecasts)
         {
             <tr>
                 <td>@forecast.Date.ToShortDateString()</td>
@@ -36,14 +35,4 @@ else
         }
         </tbody>
     </table>
-}
-
-@code {
-    private WeatherForecast[] forecasts;
-
-    protected override async Task OnInitializedAsync()
-    {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
-    }
-
 }
