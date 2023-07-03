@@ -1,0 +1,34 @@
+@inherits MvvmComponentBase<SpellsViewModel>
+
+<MudText>Spells</MudText>
+
+@if (ViewModel.Spells is null)
+{
+    <MudText>Loading...</MudText>
+}
+else
+{
+    <MudDataGrid Items="@ViewModel.Spells" Filterable="true" Groupable="true" GroupExpanded="false">
+        <Columns>
+            <HierarchyColumn></HierarchyColumn>
+            <PropertyColumn Property="spell => spell.Name"></PropertyColumn>
+            <PropertyColumn Property="spell => spell.Source"></PropertyColumn>
+            <PropertyColumn Property="spell => spell.Category" Grouping Hidden="true">
+                <GroupTemplate>
+                    <span style="font-weight:bold">Group: @context.Grouping. <MudChip  @context.Grouping.Count() Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small">total @context.Grouping.Count()</MudChip></span>
+                </GroupTemplate>
+            </PropertyColumn>
+        </Columns>
+        <ChildRowContent>
+            <a>@context.Item.Descriptor</a>
+        </ChildRowContent>
+    </MudDataGrid>
+}
+
+
+
+
+@code {
+
+
+}

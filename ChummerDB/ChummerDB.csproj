@@ -53,16 +53,22 @@
     <ItemGroup>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+        <!-- TODO Remove this direct reference at some point, currently can't be bothered -->
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.1" />
         <PackageReference Include="MudBlazor" Version="6.6.0" />
     </ItemGroup>
 
     <ItemGroup>
       <None Include="wwwroot\images\ChummerDBViewerIcon.png" />
+      <None Update="Resources\Raw\spells.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 
 
     <ItemGroup>
+      <Folder Include="Backend\Data\" />
       <Folder Include="Resources\Images\" />
     </ItemGroup>
 
@@ -71,6 +77,10 @@
         <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ChummerDBRazorLibrary\ChummerDBRazorLibrary.csproj" />
     </ItemGroup>
 
 </Project>

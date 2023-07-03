@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+        <SupportedPlatform Include="browser"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.8" />
+        <PackageReference Include="MudBlazor" Version="6.6.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="wwwroot\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Components\HexEntry.razor" />
+      <AdditionalFiles Include="Components\TextEntry.razor" />
+      <AdditionalFiles Include="Views\FetchData.razor" />
+      <AdditionalFiles Include="Views\HexTranslator.razor" />
+      <AdditionalFiles Include="Views\Spells.razor" />
+    </ItemGroup>
+
+</Project>
