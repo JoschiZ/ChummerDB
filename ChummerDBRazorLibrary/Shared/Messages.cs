@@ -1,4 +1,5 @@
-namespace ChummerDBRazorLibrary;
+namespace ChummerDBRazorLibrary.Shared;
 
-public record class ConvertHexToAsciiMessage(string HexToConvert);
-public record class ConvertAsciiToHexMessage(string AsciiToConvert);
+public record ConvertHexToAsciiMessage(string HexToConvert);
+
+public record ConvertAsciiToHexMessage(string AsciiToConvert);

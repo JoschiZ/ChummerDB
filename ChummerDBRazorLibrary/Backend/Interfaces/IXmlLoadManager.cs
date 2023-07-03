@@ -1,4 +1,4 @@
-namespace ChummerDBRazorLibrary.Interfaces;
+namespace ChummerDBRazorLibrary.Backend.Interfaces;
 
 public interface IXmlLoadManager
 {

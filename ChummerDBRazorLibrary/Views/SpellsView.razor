@@ -1,10 +1,10 @@
-@inherits MvvmComponentBase<SpellsViewModel>
+@inherits MvvmComponentBase<ISpellsViewModel>
 
 <MudText>Spells</MudText>
 
 @if (ViewModel.Spells is null)
 {
-    <MudText>Loading...</MudText>
+    <MudProgressCircular Color="Color.Primary" Size="Size.Large" Indeterminate="true" />
 }
 else
 {
@@ -15,7 +15,7 @@ else
             <PropertyColumn Property="spell => spell.Source"></PropertyColumn>
             <PropertyColumn Property="spell => spell.Category" Grouping Hidden="true">
                 <GroupTemplate>
-                    <span style="font-weight:bold">Group: @context.Grouping. <MudChip  @context.Grouping.Count() Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small">total @context.Grouping.Count()</MudChip></span>
+                   <span style="font-weight:bold">Group: @context.Grouping.Key <MudChip Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small">total @context.Grouping.Count()</MudChip></span>
                 </GroupTemplate>
             </PropertyColumn>
         </Columns>

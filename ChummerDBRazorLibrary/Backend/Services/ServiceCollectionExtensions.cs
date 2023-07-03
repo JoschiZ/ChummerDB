@@ -1,7 +1,10 @@
-using ChummerDBRazorLibrary.Interfaces;
+using ChummerDBRazorLibrary.Backend.Interfaces;
+using ChummerDBRazorLibrary.Backend.ViewModels;
 using ChummerDBRazorLibrary.Models;
 using ChummerDBRazorLibrary.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using HexEntryViewModel = ChummerDBRazorLibrary.Backend.ViewModels.HexEntryViewModel;
+using TextEntryViewModel = ChummerDBRazorLibrary.Backend.ViewModels.TextEntryViewModel;
 
 namespace ChummerDBRazorLibrary.Backend.Services;
 
@@ -15,6 +18,7 @@ public static class ServiceCollectionExtensions
 
     private static IServiceCollection RegisterViewModels(this IServiceCollection services)
     {
+        Console.WriteLine("Register View Models");
         services.AddTransient<ISpellsViewModel, SpellsViewModel>();
         
         

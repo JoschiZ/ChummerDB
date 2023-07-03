@@ -1,0 +1,41 @@
+﻿<MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme"/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+<MudLayout>
+    <MudAppBar>
+        <MudIconButton bind-Checked="@_drawerOpen" Icon="@Icons.Material.Filled.Menu" OnClick="@ToggleDrawer"/>
+        <MudSpacer />
+        <MudText Color="@Color.Primary">Chummer Data Base</MudText>
+        <MudSpacer />
+        <MudSwitch Color="Color.Primary" @bind-Checked="@_isDarkMode" Class="ma-4" T="bool" Label="Toggle Light/Dark Mode"/>
+    </MudAppBar>
+    <MudDrawer @bind-Open="@_drawerOpen" ClipMode="@DrawerClipMode.Always" Elevation="1" Variant="@DrawerVariant.Mini" OpenMiniOnHover="true">
+        <NavMenuView/>
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Large">
+            @ChildContent
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    private readonly MudTheme _theme = new();
+    private bool _isDarkMode = true;
+    private bool _drawerOpen ;
+
+    void ToggleDrawer()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+    
+    /// <summary>Child content of component.</summary>
+    [Parameter]
+    [Category("Behavior")]
+    public RenderFragment? ChildContent { get; set; }
+}
+
+<style>
+
+</style>

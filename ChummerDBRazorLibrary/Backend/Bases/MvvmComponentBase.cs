@@ -1,8 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
-using ChummerDBRazorLibrary.Interfaces;
+using ChummerDBRazorLibrary.Backend.Interfaces;
 using Microsoft.AspNetCore.Components;
 
-namespace ChummerDBRazorLibrary.Bases;
+namespace ChummerDBRazorLibrary.Backend.Bases;
 
 public abstract class MvvmComponentBase<TViewModel>: ComponentBase where TViewModel : IViewModelBase
 {

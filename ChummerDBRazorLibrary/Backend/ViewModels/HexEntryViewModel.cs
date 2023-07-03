@@ -1,9 +1,10 @@
 using ChummerDBRazorLibrary.Bases;
+using ChummerDBRazorLibrary.Shared;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 
-namespace ChummerDBRazorLibrary.ViewModels;
+namespace ChummerDBRazorLibrary.Backend.ViewModels;
 
 public partial class HexEntryViewModel : RecipientViewModelBase<ConvertAsciiToHexMessage>
 {

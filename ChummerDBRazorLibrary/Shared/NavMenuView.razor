@@ -1,6 +1,7 @@
-﻿<MudNavMenu>
+﻿@using Microsoft.AspNetCore.Components.Routing
+<MudNavMenu>
     <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Dashboard</MudNavLink>
     <MudNavLink Href="/fetchdata" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.PunchClock">Fetch Data</MudNavLink>
     <MudNavLink Href="/hexttranslator" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Hexagon">Fetch Data</MudNavLink>
-        <MudNavLink Href="/spells" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Cable">Fetch Data</MudNavLink>
+    <MudNavLink Href="/spells" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Cable">Fetch Data</MudNavLink>
 </MudNavMenu>

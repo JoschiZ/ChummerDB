@@ -1,6 +1,4 @@
-using ChummerDBRazorLibrary.Backend;
-
-namespace ChummerDBRazorLibrary.Interfaces;
+namespace ChummerDBRazorLibrary.Backend.Interfaces;
 
 public interface ISpellsModel
 {

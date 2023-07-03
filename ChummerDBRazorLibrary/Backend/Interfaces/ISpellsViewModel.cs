@@ -1,6 +1,8 @@
-namespace ChummerDBRazorLibrary.Interfaces;
+using System.Collections.ObjectModel;
 
-public interface ISpellsViewModel
+namespace ChummerDBRazorLibrary.Backend.Interfaces;
+
+public interface ISpellsViewModel: IViewModelBase
 {
-    
+    public ReadOnlyObservableCollection<Spell>? Spells { get; }
 }

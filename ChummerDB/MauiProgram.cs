@@ -1,7 +1,7 @@
 ﻿using ChummerDB.Backend;
+using ChummerDBRazorLibrary.Backend.Interfaces;
 using ChummerDBRazorLibrary.Backend.Services;
 using Microsoft.Extensions.Logging;
-using ChummerDBRazorLibrary.Interfaces;
 using MudBlazor.Services;
 
 namespace ChummerDB;
@@ -25,6 +25,7 @@ public static class MauiProgram
 #endif
 
         builder.Services.AddChummerDBServices();
+        // This needs to be provided for the RCL
         builder.Services.AddSingleton<IXmlLoadManager, XmlLoadManager>();
 
         return builder.Build();

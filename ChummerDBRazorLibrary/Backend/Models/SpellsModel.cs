@@ -1,6 +1,6 @@
 using ChummerDBRazorLibrary.Backend;
 using ChummerDBRazorLibrary.Backend.Data.xml;
-using ChummerDBRazorLibrary.Interfaces;
+using ChummerDBRazorLibrary.Backend.Interfaces;
 
 namespace ChummerDBRazorLibrary.Models;
 public class SpellsModel : ISpellsModel

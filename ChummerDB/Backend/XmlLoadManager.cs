@@ -1,7 +1,7 @@
 using System.Xml;
 using System.Xml.Serialization;
 using ChummerDBRazorLibrary.Backend.Data.xml;
-using ChummerDBRazorLibrary.Interfaces;
+using ChummerDBRazorLibrary.Backend.Interfaces;
 
 namespace ChummerDB.Backend;
 
