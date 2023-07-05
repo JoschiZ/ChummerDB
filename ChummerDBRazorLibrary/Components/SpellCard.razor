@@ -1,0 +1,50 @@
+@using ChummerDBRazorLibrary.Backend.xml
+@inherits MvvmComponentBase<SpellCardViewModel>
+
+@if (ViewModel.Spell is not null)
+{
+    <MudCard>
+        <MudCardHeader>
+            <CardHeaderContent>
+                <div class="d-flex justify-lg-space-between align-content-end">
+                    <MudText Typo="Typo.h6" Color="Color.Primary">@ViewModel.Spell.Name</MudText><DisplaySource SourceObject="ViewModel.Spell"></DisplaySource>
+                </div>
+                @if (ViewModel.Spell.Descriptor != string.Empty)
+                {
+                    <MudText Color="Color.Tertiary" Typo="Typo.subtitle1">(@ViewModel.Spell.Descriptor)</MudText>
+                }
+                <MudDivider/>
+            </CardHeaderContent>
+        </MudCardHeader>
+        <MudCardContent Class="split-columns">
+            <PropertyDisplay Label="Duration" Value="@ViewModel.DisplayDuration" />
+            <PropertyDisplay Label="Type" Value="@ViewModel.DisplayType" />
+            <PropertyDisplay Label="Range" Value="@ViewModel.DisplayRange" />
+            <PropertyDisplay Label="Damage" Value="@ViewModel.DisplayDamage" />
+            <PropertyDisplay Label="Drain" Value="@ViewModel.DisplayDrain" />
+        </MudCardContent>
+    </MudCard>
+}
+
+<style>
+    .split-columns {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .split-columns > p {
+        flex: 0 1 50%;
+    }
+</style>
+
+
+@code {
+    [Parameter]
+    public Spell? Spell { get; set; }
+    
+    protected override void OnParametersSet()
+    {
+        ViewModel.Spell = Spell;
+    }
+}

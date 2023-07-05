@@ -1,19 +1,13 @@
-// using System.Xml.Serialization;
-// XmlSerializer serializer = new XmlSerializer(typeof(Spells));
-// using (StringReader reader = new StringReader(xml))
-// {
-//    var test = (Spells)serializer.Deserialize(reader);
-// }
-
 using System.Xml.Serialization;
+using ChummerDBRazorLibrary.Backend.xml.Interfaces;
 
-namespace ChummerDBRazorLibrary.Backend;
+namespace ChummerDBRazorLibrary.Backend.xml;
 
 [XmlRoot(ElementName="spell")]
-public class Spell: IHasSource { 
+public class Spell: IHasSource, IHasDamage { 
 
 	[XmlElement(ElementName="id")] 
-	public string Id { get; set; } 
+	public Guid Id { get; set; } 
 
 	[XmlElement(ElementName="name")] 
 	public string Name { get; set; } 
@@ -22,7 +16,7 @@ public class Spell: IHasSource {
 	public int Page { get; set; } 
 
 	[XmlElement(ElementName="source")] 
-	public string Book { get; set; } 
+	public string Source { get; set; } 
 
 	[XmlElement(ElementName="category")] 
 	public string Category { get; set; } 
@@ -31,7 +25,7 @@ public class Spell: IHasSource {
 	public string Damage { get; set; } 
 
 	[XmlElement(ElementName="descriptor")] 
-	public string Descriptor { get; set; } 
+	public string? Descriptor { get; set; } 
 
 	[XmlElement(ElementName="duration")] 
 	public string Duration { get; set; } 
@@ -44,12 +38,5 @@ public class Spell: IHasSource {
 
 	[XmlElement(ElementName="type")] 
 	public string Type { get; set; }
-    
-	[XmlIgnore]
-	public string Source => $"{Page} {Book}";
 }
 
-public interface IHasSource
-{
-	public string Source { get; }
-}

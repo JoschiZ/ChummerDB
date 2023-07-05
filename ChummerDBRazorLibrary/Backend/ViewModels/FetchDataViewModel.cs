@@ -1,9 +1,8 @@
 using System.Collections.ObjectModel;
-using ChummerDBRazorLibrary.Backend;
-using ChummerDBRazorLibrary.Bases;
 using CommunityToolkit.Mvvm.ComponentModel;
+using ViewModelBase = ChummerDBRazorLibrary.Backend.Bases.ViewModelBase;
 
-namespace ChummerDBRazorLibrary.ViewModels;
+namespace ChummerDBRazorLibrary.Backend.ViewModels;
 
 public partial class FetchDataViewModel: ViewModelBase
 {

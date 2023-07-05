@@ -1,8 +1,9 @@
-using ChummerDBRazorLibrary.Backend;
 using ChummerDBRazorLibrary.Backend.Data.xml;
 using ChummerDBRazorLibrary.Backend.Interfaces;
+using ChummerDBRazorLibrary.Backend.Models.Interfaces;
+using ChummerDBRazorLibrary.Backend.xml;
 
-namespace ChummerDBRazorLibrary.Models;
+namespace ChummerDBRazorLibrary.Backend.Models;
 public class SpellsModel : ISpellsModel
 {
     public List<Spell> Spells { get; set; } = new();
@@ -17,7 +18,7 @@ public class SpellsModel : ISpellsModel
     }
     
 
-    public async Task<IList<Spell>> GetSpells()
+    public async Task<List<Spell>> GetSpells()
     {
         if (IsLoaded)
         {

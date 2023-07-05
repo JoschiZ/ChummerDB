@@ -1,0 +1,18 @@
+@if (ChildContent is not null || Value != string.Empty)
+{
+    <MudText><span style="font-weight: bolder">@Label: </span> @ChildContent@Value</MudText>
+}
+
+
+@code {
+
+    [Parameter]
+    public string Label { get; set; } = string.Empty;
+    
+    [Parameter]
+    public string Value { get; set; } = string.Empty;
+
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}

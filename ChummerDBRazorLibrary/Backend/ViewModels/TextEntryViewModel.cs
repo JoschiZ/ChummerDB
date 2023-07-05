@@ -1,4 +1,4 @@
-using ChummerDBRazorLibrary.Bases;
+using ChummerDBRazorLibrary.Backend.Bases;
 using ChummerDBRazorLibrary.Shared;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;

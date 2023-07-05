@@ -1,5 +1,4 @@
 using System.Diagnostics.CodeAnalysis;
-using ChummerDBRazorLibrary.Backend.Interfaces;
 using Microsoft.AspNetCore.Components;
 
 namespace ChummerDBRazorLibrary.Backend.Bases;
@@ -21,5 +20,10 @@ public abstract class MvvmComponentBase<TViewModel>: ComponentBase where TViewMo
     protected override Task OnInitializedAsync()
     {
         return ViewModel.OnInitializedAsync();
+    }
+
+    protected override Task OnParametersSetAsync()
+    {
+        return ViewModel.OnParametersSetAsync();
     }
 }

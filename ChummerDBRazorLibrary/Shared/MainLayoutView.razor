@@ -4,11 +4,11 @@
 
 <MudLayout>
     <MudAppBar>
-        <MudIconButton bind-Checked="@_drawerOpen" Icon="@Icons.Material.Filled.Menu" OnClick="@ToggleDrawer"/>
-        <MudSpacer />
-        <MudText Color="@Color.Primary">Chummer Data Base</MudText>
-        <MudSpacer />
-        <MudSwitch Color="Color.Primary" @bind-Checked="@_isDarkMode" Class="ma-4" T="bool" Label="Toggle Light/Dark Mode"/>
+        <MudStack Style="width: 100%" Row Justify="Justify.SpaceBetween" AlignItems="AlignItems.Baseline">
+            <MudIconButton bind-Checked="@_drawerOpen" Icon="@Icons.Material.Filled.Menu" OnClick="@ToggleDrawer"/>
+            <MudText Typo="Typo.h4" Color="@Color.Primary">Chummer Data Base</MudText>
+            <MudSwitch Color="Color.Primary" @bind-Checked="@_isDarkMode" Class="ma-4" T="bool" Label="Toggle Light/Dark Mode"/>
+        </MudStack>
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen" ClipMode="@DrawerClipMode.Always" Elevation="1" Variant="@DrawerVariant.Mini" OpenMiniOnHover="true">
         <NavMenuView/>
@@ -32,7 +32,6 @@
     
     /// <summary>Child content of component.</summary>
     [Parameter]
-    [Category("Behavior")]
     public RenderFragment? ChildContent { get; set; }
 }
 

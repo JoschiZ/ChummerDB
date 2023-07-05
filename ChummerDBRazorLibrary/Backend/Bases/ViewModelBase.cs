@@ -1,8 +1,7 @@
-using ChummerDBRazorLibrary.Backend.Interfaces;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
-namespace ChummerDBRazorLibrary.Bases;
+namespace ChummerDBRazorLibrary.Backend.Bases;
 
 public abstract partial class ViewModelBase: ObservableObject, IViewModelBase
 {
@@ -13,6 +12,11 @@ public abstract partial class ViewModelBase: ObservableObject, IViewModelBase
 
     [RelayCommand]
     public virtual async Task Loaded()
+    {
+        await Task.CompletedTask.ConfigureAwait(false);
+    }
+
+    public virtual async Task OnParametersSetAsync()
     {
         await Task.CompletedTask.ConfigureAwait(false);
     }

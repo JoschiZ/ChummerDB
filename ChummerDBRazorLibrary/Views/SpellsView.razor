@@ -1,34 +1,47 @@
-@inherits MvvmComponentBase<ISpellsViewModel>
-
-<MudText>Spells</MudText>
+@using ChummerDBRazorLibrary.Backend.xml
+@inherits MvvmComponentBase<ChummerDBRazorLibrary.Backend.ViewModels.Interfaces.ISpellsViewModel>
 
 @if (ViewModel.Spells is null)
 {
-    <MudProgressCircular Color="Color.Primary" Size="Size.Large" Indeterminate="true" />
+    <MudProgressCircular Color="Color.Primary" Size="Size.Large" Indeterminate />
 }
 else
 {
-    <MudDataGrid Items="@ViewModel.Spells" Filterable="true" Groupable="true" GroupExpanded="false">
+    <MudButton FullWidth Size="Size.Small" Variant="Variant.Filled" Color="Color.Primary" OnClick="() => DataGrid?.ToggleFiltersMenu()">Filter <MudIcon Icon="@Icons.Material.Filled.FilterList"></MudIcon></MudButton>
+    <MudDataGrid @ref="DataGrid" Dense Items="@ViewModel.Spells" Groupable Hideable FilterCaseSensitivity="DataGridFilterCaseSensitivity.CaseInsensitive" ShowColumnOptions Filterable SortMode="SortMode.Multiple" ShowFilterIcons="false">
         <Columns>
             <HierarchyColumn></HierarchyColumn>
-            <PropertyColumn Property="spell => spell.Name"></PropertyColumn>
-            <PropertyColumn Property="spell => spell.Source"></PropertyColumn>
+            <PropertyColumn Property="spell => spell.Name" Title="Spell Name"></PropertyColumn>
+            <PropertyColumn Property="spell => spell.Duration"></PropertyColumn>
+            <PropertyColumn Property="spell => spell.Dv" Title="Drain"></PropertyColumn>
+            <PropertyColumn Property="spell => spell.Range"></PropertyColumn>
+            <TemplateColumn Title="Source" Filterable="false">
+                <CellTemplate>
+                    <DisplaySource SourceObject="@context.Item"></DisplaySource>
+                </CellTemplate>
+            </TemplateColumn>
+            <!--Hidden Columns-->
+            <PropertyColumn Property="spell => spell.Type" Hidden="true"></PropertyColumn>
+            <PropertyColumn Property="spell => spell.Source" Title="Source" Hidden="true"></PropertyColumn>
+            <PropertyColumn Property="spell => spell.Damage" Hidden="true"></PropertyColumn>
+            <PropertyColumn Property="spell => spell.Descriptor" Hidden="true"></PropertyColumn>
             <PropertyColumn Property="spell => spell.Category" Grouping Hidden="true">
                 <GroupTemplate>
-                   <span style="font-weight:bold">Group: @context.Grouping.Key <MudChip Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small">total @context.Grouping.Count()</MudChip></span>
+                    <span style="font-weight:bold">Group: @context.Grouping.Key <MudChip Variant="Variant.Outlined" Color="Color.Info" Size="Size.Small">total @context.Grouping.Count()</MudChip></span>
                 </GroupTemplate>
             </PropertyColumn>
+            <!--Hidden Columns-->
         </Columns>
         <ChildRowContent>
-            <a>@context.Item.Descriptor</a>
+            <SpellCard Spell="@context.Item"></SpellCard>
         </ChildRowContent>
     </MudDataGrid>
+    
 }
 
 
 
 
 @code {
-
-
+    public MudDataGrid<Spell>? DataGrid { get; set; }
 }

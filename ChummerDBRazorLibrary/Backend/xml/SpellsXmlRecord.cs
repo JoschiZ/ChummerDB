@@ -1,4 +1,5 @@
 using System.Xml.Serialization;
+using ChummerDBRazorLibrary.Backend.xml;
 
 namespace ChummerDBRazorLibrary.Backend.Data.xml;
 
