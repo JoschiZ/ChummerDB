@@ -2,42 +2,44 @@ using System.Xml;
 using System.Xml.Serialization;
 using ChummerDBRazorLibrary.Backend.Data.xml;
 using ChummerDBRazorLibrary.Backend.Interfaces;
+using ChummerDBRazorLibrary.Backend.xml;
 
 namespace ChummerDB.Backend;
 
 public class XmlLoadManager: IXmlLoadManager
 {
-    public static readonly Dictionary<Type, string> FilePaths = new()
+    private static readonly Dictionary<Type, string> FilePaths = new()
     {
         {typeof(SpellsXmlRecord), "spells.xml"},
+        {typeof(BooksXmlRecord), "books.xml"}
     };
 
-    private static Dictionary<Type, object> XmlObjectCache { get; } = new();
+    private static Dictionary<Type, object?> XmlObjectCache { get; } = new();
 
     public async Task<T> GetXml<T>()
     {
-        if (XmlObjectCache.ContainsKey(typeof(T)))
-        {
-            return (T)XmlObjectCache[typeof(T)];
-        }
+        if (!XmlObjectCache.TryGetValue(typeof(T), out var value)) 
+            return await LoadXmlAsync<T>();
         
-        return await LoadXmlAsync<T>(FilePaths[typeof(T)]);
+        if (value is null)
+        {
+            throw new NullReferenceException();
+        }
+        return (T)value;
+
     }
     
     
-    private static async ValueTask<T> LoadXmlAsync<T>(string path)
+    private static async ValueTask<T> LoadXmlAsync<T>()
     {
-        using var stream = FileSystem.Current.OpenAppPackageFileAsync("spells.xml");
+        using var stream = FileSystem.Current.OpenAppPackageFileAsync(FilePaths[typeof(T)]);
         
         var serializer = new XmlSerializer(typeof(T));
         using var reader = XmlReader.Create(await stream);
         var xmlObject = serializer.Deserialize(reader);
-        if (xmlObject is null)
-        {
-            throw new NullReferenceException();
-        }
 
-
+        XmlObjectCache[typeof(T)] = xmlObject ?? throw new NullReferenceException();
+        
         return (T)xmlObject;
     }
 }
