@@ -16,4 +16,15 @@
       <ProjectReference Include="..\ChummerDBRazorLibrary\ChummerDBRazorLibrary.csproj" />
     </ItemGroup>
 
+
+
+    <ItemGroup>
+      <Content Update="wwwroot\data\books.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\data\spells.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
 </Project>
