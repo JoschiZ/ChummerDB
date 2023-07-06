@@ -1,4 +1,3 @@
-using ChummerDBRazorLibrary.Backend.Data.xml;
 using ChummerDBRazorLibrary.Backend.Interfaces;
 using ChummerDBRazorLibrary.Backend.Models.Interfaces;
 using ChummerDBRazorLibrary.Backend.xml;

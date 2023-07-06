@@ -1,12 +1,11 @@
 using ChummerDBRazorLibrary.Backend.Bases;
-using ChummerDBRazorLibrary.Backend.Models;
 using ChummerDBRazorLibrary.Backend.Models.Interfaces;
 using ChummerDBRazorLibrary.Backend.xml;
 using ChummerDBRazorLibrary.Backend.xml.Interfaces;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
-namespace ChummerDBRazorLibrary.Backend.ViewModels;
+namespace ChummerDBRazorLibrary.Components.ViewModels;
 
 public partial class DisplaySourceViewModel: ViewModelBase
 {

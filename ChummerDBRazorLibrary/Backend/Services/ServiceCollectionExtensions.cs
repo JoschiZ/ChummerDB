@@ -2,10 +2,9 @@ using ChummerDBRazorLibrary.Backend.Models;
 using ChummerDBRazorLibrary.Backend.Models.Interfaces;
 using ChummerDBRazorLibrary.Backend.ViewModels;
 using ChummerDBRazorLibrary.Backend.ViewModels.Interfaces;
+using ChummerDBRazorLibrary.Components.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using FetchDataViewModel = ChummerDBRazorLibrary.Backend.ViewModels.FetchDataViewModel;
-using HexEntryViewModel = ChummerDBRazorLibrary.Backend.ViewModels.HexEntryViewModel;
-using TextEntryViewModel = ChummerDBRazorLibrary.Backend.ViewModels.TextEntryViewModel;
+
 
 namespace ChummerDBRazorLibrary.Backend.Services;
 
@@ -19,19 +18,14 @@ public static class ServiceCollectionExtensions
 
     private static IServiceCollection RegisterViewModels(this IServiceCollection services)
     {
-        Console.WriteLine("Register View Models");
+        // Views
         services.AddTransient<ISpellsViewModel, SpellsViewModel>();
+        services.AddTransient<IComplexFormsViewModel, ComplexFormsViewModel>();
+        
+        // Components
         services.AddTransient<SpellCardViewModel>();
         services.AddTransient<DisplaySourceViewModel>();
-        
-        
-        
-        //TODO: Remove Example Pages
-        services.AddTransient<FetchDataViewModel>();
-        services.AddTransient<HexEntryViewModel>();
-        services.AddTransient<TextEntryViewModel>();
-        services.AddTransient<WeatherForecastService>();
-
+        services.AddTransient<ComplexFormCardViewModel>();
         return services;
     }
     
@@ -39,6 +33,7 @@ public static class ServiceCollectionExtensions
     {
         services.AddSingleton<ISpellsModel, SpellsModel>();
         services.AddSingleton<IBooksModel, BooksModel>();
+        services.AddSingleton<IComplexFormsModel, ComplexFormsModel>();
         return services;
     }
 }

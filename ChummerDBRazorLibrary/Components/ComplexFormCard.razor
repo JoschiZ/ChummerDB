@@ -1,0 +1,40 @@
+@using ChummerDBRazorLibrary.Backend.xml
+@inherits MvvmComponentBase<ComplexFormCardViewModel>
+
+@if (ViewModel.ComplexForm is not null)
+{
+    <MudCard>
+        <MudCardHeader>
+            <CardHeaderContent>
+                <div class="d-flex justify-lg-space-between align-content-end">
+                    <MudText Typo="Typo.h6" Color="Color.Primary">@ViewModel.ComplexForm.Name</MudText><DisplaySource SourceObject="ViewModel.ComplexForm"></DisplaySource>
+                </div>
+                <MudDivider/>
+            </CardHeaderContent>
+        </MudCardHeader>
+        <MudCardContent Class="split-columns">
+            <PropertyDisplay Label="Duration" Value="@ViewModel.DisplayDuration"></PropertyDisplay>
+            <PropertyDisplay Label="Fade" Value="@ViewModel.DisplayFade"></PropertyDisplay>
+            <PropertyDisplay Label="Target" Value="@ViewModel.ComplexForm.Target"></PropertyDisplay>
+        </MudCardContent>
+    </MudCard>
+}
+
+<style>
+    .split-columns {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+</style>
+
+
+@code {
+    [Parameter]
+    public ComplexForm? ComplexForm { get; set; }
+    
+    protected override void OnParametersSet()
+    {
+        ViewModel.ComplexForm = ComplexForm;
+    }
+}

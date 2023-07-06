@@ -1,7 +1,6 @@
 using System.Xml.Serialization;
-using ChummerDBRazorLibrary.Backend.xml;
 
-namespace ChummerDBRazorLibrary.Backend.Data.xml;
+namespace ChummerDBRazorLibrary.Backend.xml;
 
 [XmlRoot("chummer")]
 public class SpellsXmlRecord

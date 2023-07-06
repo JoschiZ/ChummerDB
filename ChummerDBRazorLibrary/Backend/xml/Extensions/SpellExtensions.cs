@@ -21,20 +21,4 @@ public static class SpellExtensions
             .Replace("(A)", "(Area)")
             .Replace("T", "Touch");
     }
-
-    public static string GetDisplayDuration(this Spell spell)
-    {
-        return spell.Duration switch
-        {
-            "I" => "Instantaneous",
-            "S" => "Sustained",
-            "P" => "Permanent",
-            _ => spell.Duration
-        };
-    }
-
-    public static string GetDisplayDrain(this Spell spell)
-    {
-        return spell.Dv.Replace("F", "[Force]");
-    }
 }

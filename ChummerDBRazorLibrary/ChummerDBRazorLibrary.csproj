@@ -19,6 +19,7 @@
 
     <ItemGroup>
       <Folder Include="Backend\Interfaces\Extensions\" />
+      <Folder Include="Backend\ViewModels\Components\" />
       <Folder Include="wwwroot\" />
     </ItemGroup>
 

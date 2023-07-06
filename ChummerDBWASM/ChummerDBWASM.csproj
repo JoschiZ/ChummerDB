@@ -27,4 +27,12 @@
       </Content>
     </ItemGroup>
 
+
+
+    <ItemGroup>
+      <MauiAsset Include="wwwroot\data\complexforms.xml">
+        <LogicalName>complexforms.xml</LogicalName>
+      </MauiAsset>
+    </ItemGroup>
+
 </Project>

@@ -1,0 +1,23 @@
+@typeparam T
+
+<MudStack Row>
+    <MudButtonGroup Style="width: 100%" OverrideStyles="false">
+            <MudButton EndIcon="@Icons.Material.Filled.FilterList" FullWidth Size="Size.Small" Variant="Variant.Filled" Color="Color.Primary" OnClick="() => DataGrid?.ToggleFiltersMenu()">Filter</MudButton>
+            <MudButton EndIcon="@Icons.Material.Filled.DeleteSweep" Size="Size.Small" Variant="Variant.Filled" Color="Color.Secondary" OnClick="ResetFilterButton">Clear</MudButton>
+    </MudButtonGroup>
+
+</MudStack>
+
+@code {
+    [Parameter]
+    public MudDataGrid<T>? DataGrid { get; set; }
+
+    private async Task ResetFilterButton()
+    {
+        if (DataGrid != null)
+        {
+            await DataGrid.ClearFiltersAsync();
+            StateHasChanged();
+        }
+    }
+}

@@ -1,10 +1,11 @@
 using ChummerDBRazorLibrary.Backend.Bases;
-using ChummerDBRazorLibrary.Backend.ViewModels.Interfaces;
 using ChummerDBRazorLibrary.Backend.xml;
 using ChummerDBRazorLibrary.Backend.xml.Extensions;
+using ChummerDBRazorLibrary.Components.ViewModels.Interfaces;
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace ChummerDBRazorLibrary.Backend.ViewModels;
+
+namespace ChummerDBRazorLibrary.Components.ViewModels;
 
 public partial class SpellCardViewModel : ViewModelBase, ISpellCardViewModel
 {

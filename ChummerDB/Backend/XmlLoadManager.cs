@@ -1,6 +1,5 @@
 using System.Xml;
 using System.Xml.Serialization;
-using ChummerDBRazorLibrary.Backend.Data.xml;
 using ChummerDBRazorLibrary.Backend.Interfaces;
 using ChummerDBRazorLibrary.Backend.xml;
 
@@ -11,7 +10,8 @@ public class XmlLoadManager: IXmlLoadManager
     private static readonly Dictionary<Type, string> FilePaths = new()
     {
         {typeof(SpellsXmlRecord), "spells.xml"},
-        {typeof(BooksXmlRecord), "books.xml"}
+        {typeof(BooksXmlRecord), "books.xml"},
+        {typeof(ComplexFormsXmlRecord), "complexforms.xml"}
     };
 
     private static Dictionary<Type, object?> XmlObjectCache { get; } = new();
