@@ -22,12 +22,4 @@
       <Folder Include="Backend\ViewModels\Components\" />
       <Folder Include="wwwroot\" />
     </ItemGroup>
-
-    <ItemGroup>
-      <AdditionalFiles Include="Components\HexEntry.razor" />
-      <AdditionalFiles Include="Components\TextEntry.razor" />
-      <AdditionalFiles Include="Views\FetchData.razor" />
-      <AdditionalFiles Include="Views\HexTranslator.razor" />
-    </ItemGroup>
-
 </Project>

@@ -39,7 +39,7 @@ else
                         </TemplateColumn>
                         <PropertyColumn Property="complexForm => complexForm.Target" Grouping>
                             <GroupTemplate>
-                                <span style="font-weight:bold">Group: @context.Grouping.Key <MudChip Variant="Variant.Outlined" Color="Color.Info" Size="Size.Small">total @context.Grouping.Count()</MudChip></span>
+                                <span style="font-weight:bold">Target: @context.Grouping.Key <MudChip Variant="Variant.Outlined" Color="Color.Info" Size="Size.Small">total @context.Grouping.Count()</MudChip></span>
                             </GroupTemplate>
                         </PropertyColumn>
                     </Columns>
