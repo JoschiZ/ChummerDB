@@ -1,6 +1,6 @@
 using ChummerDBRazorLibrary.Backend.xml;
 
-namespace ChummerDBRazorLibrary.Backend.Models.Interfaces;
+namespace ChummerDBRazorLibrary.Backend.Models;
 
 public interface IComplexFormsModel
 {

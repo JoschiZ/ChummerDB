@@ -1,10 +1,10 @@
 using ChummerDBRazorLibrary.Backend.Bases;
 using ChummerDBRazorLibrary.Backend.xml;
 using ChummerDBRazorLibrary.Backend.xml.Extensions;
-using ChummerDBRazorLibrary.Components.ViewModels.Interfaces;
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace ChummerDBRazorLibrary.Components.ViewModels;
+
+namespace ChummerDBRazorLibrary.Components;
 
 public partial class ComplexFormCardViewModel: ViewModelBase, IComplexFormCardViewModel
 {

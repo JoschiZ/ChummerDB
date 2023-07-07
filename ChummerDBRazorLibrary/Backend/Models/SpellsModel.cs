@@ -1,5 +1,4 @@
 using ChummerDBRazorLibrary.Backend.Interfaces;
-using ChummerDBRazorLibrary.Backend.Models.Interfaces;
 using ChummerDBRazorLibrary.Backend.xml;
 
 namespace ChummerDBRazorLibrary.Backend.Models;

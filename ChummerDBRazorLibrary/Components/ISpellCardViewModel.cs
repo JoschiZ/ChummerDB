@@ -1,6 +1,6 @@
 using ChummerDBRazorLibrary.Backend.Bases;
 
-namespace ChummerDBRazorLibrary.Components.ViewModels.Interfaces;
+namespace ChummerDBRazorLibrary.Components;
 
 public interface ISpellCardViewModel: IViewModelBase
 {

@@ -18,8 +18,45 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Backend\Interfaces\Extensions\" />
-      <Folder Include="Backend\ViewModels\Components\" />
       <Folder Include="wwwroot\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\ComplexFormsViewModel.cs">
+        <DependentUpon>ComplexFormsView.razor</DependentUpon>
+      </Compile>
+      <Compile Update="Views\SpellsViewModel.cs">
+        <DependentUpon>SpellsView.razor</DependentUpon>
+      </Compile>
+      <Compile Update="Components\IComplexFormCardViewModel.cs">
+        <DependentUpon>ComplexFormCardViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Components\ISpellCardViewModel.cs">
+        <DependentUpon>SpellCardViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Components\SpellCardViewModel.cs">
+        <DependentUpon>SpellCard.razor</DependentUpon>
+      </Compile>
+      <Compile Update="Components\ComplexFormCardViewModel.cs">
+        <DependentUpon>ComplexFormCard.razor</DependentUpon>
+      </Compile>
+      <Compile Update="Backend\Models\IBooksModel.cs">
+        <DependentUpon>BooksModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Backend\Models\IComplexFormsModel.cs">
+        <DependentUpon>ComplexFormsModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Backend\Models\ISpellsModel.cs">
+        <DependentUpon>SpellsModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Views\IComplexFormsViewModel.cs">
+        <DependentUpon>ComplexFormsViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Views\ISpellsViewModel.cs">
+        <DependentUpon>SpellsViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Components\DisplaySourceViewModel.cs">
+        <DependentUpon>DisplaySource.razor</DependentUpon>
+      </Compile>
     </ItemGroup>
 </Project>

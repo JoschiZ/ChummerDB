@@ -1,11 +1,10 @@
 using System.Collections.ObjectModel;
 using ChummerDBRazorLibrary.Backend.Bases;
-using ChummerDBRazorLibrary.Backend.Models.Interfaces;
-using ChummerDBRazorLibrary.Backend.ViewModels.Interfaces;
+using ChummerDBRazorLibrary.Backend.Models;
 using ChummerDBRazorLibrary.Backend.xml;
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace ChummerDBRazorLibrary.Backend.ViewModels;
+namespace ChummerDBRazorLibrary.Views;
 
 public partial class SpellsViewModel : ViewModelBase, ISpellsViewModel
 {

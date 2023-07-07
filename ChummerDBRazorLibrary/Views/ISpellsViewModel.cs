@@ -1,9 +1,8 @@
 using System.Collections.ObjectModel;
 using ChummerDBRazorLibrary.Backend.Bases;
-using ChummerDBRazorLibrary.Backend.Interfaces;
 using ChummerDBRazorLibrary.Backend.xml;
 
-namespace ChummerDBRazorLibrary.Backend.ViewModels.Interfaces;
+namespace ChummerDBRazorLibrary.Views;
 
 public interface ISpellsViewModel: IViewModelBase
 {

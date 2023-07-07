@@ -1,10 +1,7 @@
 using ChummerDBRazorLibrary.Backend.Models;
-using ChummerDBRazorLibrary.Backend.Models.Interfaces;
-using ChummerDBRazorLibrary.Backend.ViewModels;
-using ChummerDBRazorLibrary.Backend.ViewModels.Interfaces;
-using ChummerDBRazorLibrary.Components.ViewModels;
+using ChummerDBRazorLibrary.Components;
+using ChummerDBRazorLibrary.Views;
 using Microsoft.Extensions.DependencyInjection;
-
 
 namespace ChummerDBRazorLibrary.Backend.Services;
 
