@@ -26,7 +26,7 @@ public static class MauiProgram
 
         builder.Services.AddChummerDBServices();
         // This needs to be provided for the RCL
-        builder.Services.AddSingleton<IXmlLoadManager, XmlLoadManager>();
+        builder.Services.AddTransient<IXmlDataProvider, XmlDataProvider>();
 
         return builder.Build();
     }

@@ -1,14 +1,12 @@
 using System.Xml;
 using System.Xml.Serialization;
 using ChummerDBRazorLibrary.Backend.Interfaces;
-using ChummerDBRazorLibrary.Backend.xml;
 
-namespace ChummerDBWASM.Backend;
+namespace ChummerDBRazorLibrary.Backend.xml;
 
-public class XmlLoadManager: IXmlLoadManager
+public class XmlLoadManager : IXmlLoadManager
 {
-    private HttpClient HttpClient { get; set; }
-    
+    private readonly IXmlDataProvider _xmlDataProvider;
     private static readonly Dictionary<Type, string> FilePaths = new()
     {
         {typeof(SpellsXmlRecord), "spells.xml"},
@@ -16,13 +14,13 @@ public class XmlLoadManager: IXmlLoadManager
         {typeof(ComplexFormsXmlRecord), "complexforms.xml"}
     };
 
-    public XmlLoadManager(HttpClient httpClient)
-    {
-        HttpClient = httpClient;
-    }
-
     private static Dictionary<Type, object?> XmlObjectCache { get; } = new();
 
+    public XmlLoadManager(IXmlDataProvider xmlDataProvider)
+    {
+        _xmlDataProvider = xmlDataProvider;
+    }
+    
     public async Task<T> GetXml<T>()
     {
         if (!XmlObjectCache.TryGetValue(typeof(T), out var value)) 
@@ -33,16 +31,13 @@ public class XmlLoadManager: IXmlLoadManager
             throw new NullReferenceException();
         }
         return (T)value;
-
     }
-    
     
     private async ValueTask<T> LoadXmlAsync<T>()
     {
-        var stream = HttpClient.GetStreamAsync("data/" + FilePaths[typeof(T)]);
-        
+        var stream = await _xmlDataProvider.GetData(FilePaths[typeof(T)]);
         var serializer = new XmlSerializer(typeof(T));
-        using var reader = XmlReader.Create(await stream);
+        using var reader = XmlReader.Create(stream);
         var xmlObject = serializer.Deserialize(reader);
 
         XmlObjectCache[typeof(T)] = xmlObject ?? throw new NullReferenceException();

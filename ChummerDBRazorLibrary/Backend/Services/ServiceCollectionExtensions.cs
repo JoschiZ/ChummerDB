@@ -1,4 +1,6 @@
+using ChummerDBRazorLibrary.Backend.Interfaces;
 using ChummerDBRazorLibrary.Backend.Models;
+using ChummerDBRazorLibrary.Backend.xml;
 using ChummerDBRazorLibrary.Components;
 using ChummerDBRazorLibrary.Views;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,6 +11,7 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddChummerDBServices(this IServiceCollection services)
     {
+        services.AddSingleton<IXmlLoadManager, XmlLoadManager>();
         services.RegisterViewModels().RegisterModels();
         return services;
     }
