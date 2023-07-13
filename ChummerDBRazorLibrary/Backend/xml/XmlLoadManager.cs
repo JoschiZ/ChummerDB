@@ -7,7 +7,7 @@ namespace ChummerDBRazorLibrary.Backend.xml;
 public class XmlLoadManager : IXmlLoadManager
 {
     private readonly IXmlDataProvider _xmlDataProvider;
-    private static readonly Dictionary<Type, string> FilePaths = new()
+    public static readonly Dictionary<Type, string> FilePaths = new()
     {
         {typeof(SpellsXmlRecord), "spells.xml"},
         {typeof(BooksXmlRecord), "books.xml"},
