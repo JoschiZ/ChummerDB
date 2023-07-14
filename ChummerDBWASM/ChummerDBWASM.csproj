@@ -30,9 +30,15 @@
 
 
     <ItemGroup>
+      <MauiAsset Include="wwwroot\data\armor.xml">
+        <LogicalName>armor.xml</LogicalName>
+      </MauiAsset>
       <MauiAsset Include="wwwroot\data\complexforms.xml">
         <LogicalName>complexforms.xml</LogicalName>
       </MauiAsset>
     </ItemGroup>
+
+
+
 
 </Project>

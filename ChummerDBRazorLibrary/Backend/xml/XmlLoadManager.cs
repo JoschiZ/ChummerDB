@@ -11,7 +11,8 @@ public class XmlLoadManager : IXmlLoadManager
     {
         {typeof(SpellsXmlRecord), "spells.xml"},
         {typeof(BooksXmlRecord), "books.xml"},
-        {typeof(ComplexFormsXmlRecord), "complexforms.xml"}
+        {typeof(ComplexFormsXmlRecord), "complexforms.xml"},
+        {typeof(ArmorXmlRecord), "armor.xml"}
     };
 
     private static Dictionary<Type, object?> XmlObjectCache { get; } = new();
