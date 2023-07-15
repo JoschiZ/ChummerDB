@@ -8,7 +8,7 @@ public class SpellsModel : XmlDataModelBase<Spell>, ISpellsModel
     private protected override async Task<List<Spell>> LoadItems()
     {
         var xml = await XmlLoadManager.GetXml<SpellsXmlRecord>();
-        Items = xml.Spells;
+        Items = xml.Spells.OrderBy(spell => spell.Name).ToList();
         IsLoaded = true;
         return Items;
     }

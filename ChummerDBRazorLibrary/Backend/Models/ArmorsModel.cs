@@ -13,7 +13,7 @@ public class ArmorsModel : XmlDataModelBase<Armor>, IArmorsModel
     private protected override async Task<List<Armor>> LoadItems()
     {
         var armors = await XmlLoadManager.GetXml<ArmorXmlRecord>();
-        Items = armors.Armors;
+        Items = armors.Armors.OrderBy(armor => armor.Name).ToList();
         IsLoaded = true;
         return Items;
     }

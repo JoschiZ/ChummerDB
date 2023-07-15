@@ -9,7 +9,7 @@ public class ComplexFormsModel: XmlDataModelBase<ComplexForm>, IComplexFormsMode
     private protected override async Task<List<ComplexForm>> LoadItems()
     {
         var xml = await XmlLoadManager.GetXml<ComplexFormsXmlRecord>();
-        Items = xml.ComplexForms;
+        Items = xml.ComplexForms.OrderBy(form => form.Name).ToList();
         IsLoaded = true;
         return Items;
     }
