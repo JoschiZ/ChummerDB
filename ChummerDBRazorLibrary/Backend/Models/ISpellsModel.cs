@@ -1,8 +1,8 @@
+using ChummerDBRazorLibrary.Backend.Bases;
 using ChummerDBRazorLibrary.Backend.xml;
 
 namespace ChummerDBRazorLibrary.Backend.Models;
 
-public interface ISpellsModel
+public interface ISpellsModel: IXmlDataModelBase<Spell>
 {
-    public Task<List<Spell>> GetSpells();
 }

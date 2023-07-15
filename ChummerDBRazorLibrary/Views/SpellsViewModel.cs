@@ -20,7 +20,7 @@ public partial class SpellsViewModel : ViewModelBase, ISpellsViewModel
 
     public override async Task Loaded()
     {
-        var spells =(await SpellsModel.GetSpells()).OrderBy(spell => spell.Name);
+        var spells =(await SpellsModel.GetItems()).OrderBy(spell => spell.Name);
         
         Spells = new ReadOnlyObservableCollection<Spell>(new ObservableCollection<Spell>(spells));
     }

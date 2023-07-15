@@ -40,8 +40,8 @@
       <Compile Update="Components\ComplexFormCardViewModel.cs">
         <DependentUpon>ComplexFormCard.razor</DependentUpon>
       </Compile>
-      <Compile Update="Backend\Models\IBooksModel.cs">
-        <DependentUpon>BooksModel.cs</DependentUpon>
+      <Compile Update="Backend\Models\IBooksModelBase.cs">
+        <DependentUpon>BooksModelBase.cs</DependentUpon>
       </Compile>
       <Compile Update="Backend\Models\IComplexFormsModel.cs">
         <DependentUpon>ComplexFormsModel.cs</DependentUpon>
@@ -57,6 +57,21 @@
       </Compile>
       <Compile Update="Components\DisplaySourceViewModel.cs">
         <DependentUpon>DisplaySource.razor</DependentUpon>
+      </Compile>
+      <Compile Update="Views\ArmorsViewModel.cs">
+        <DependentUpon>ArmorsView.razor</DependentUpon>
+      </Compile>
+      <Compile Update="Views\IArmorsViewModel.cs">
+        <DependentUpon>ArmorsViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Backend\Bases\IViewModelBase.cs">
+        <DependentUpon>ViewModelBase.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Backend\Bases\IXmlDataModelBase.cs">
+        <DependentUpon>XmlDataModelBase.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Backend\Models\IArmorsModel.cs">
+        <DependentUpon>ArmorsModel.cs</DependentUpon>
       </Compile>
     </ItemGroup>
 </Project>

@@ -21,6 +21,7 @@ public static class ServiceCollectionExtensions
         // Views
         services.AddTransient<ISpellsViewModel, SpellsViewModel>();
         services.AddTransient<IComplexFormsViewModel, ComplexFormsViewModel>();
+        services.AddTransient<IArmorsViewModel, ArmorsViewModel>();
         
         // Components
         services.AddTransient<SpellCardViewModel>();
@@ -32,8 +33,9 @@ public static class ServiceCollectionExtensions
     private static IServiceCollection RegisterModels(this IServiceCollection services)
     {
         services.AddSingleton<ISpellsModel, SpellsModel>();
-        services.AddSingleton<IBooksModel, BooksModel>();
+        services.AddSingleton<IBooksModelBase, BooksModelBase>();
         services.AddSingleton<IComplexFormsModel, ComplexFormsModel>();
+        services.AddSingleton<IArmorsModel, ArmorsModel>();
         return services;
     }
 }

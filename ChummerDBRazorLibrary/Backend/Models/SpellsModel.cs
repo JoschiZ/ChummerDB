@@ -1,37 +1,19 @@
+using ChummerDBRazorLibrary.Backend.Bases;
 using ChummerDBRazorLibrary.Backend.Interfaces;
 using ChummerDBRazorLibrary.Backend.xml;
 
 namespace ChummerDBRazorLibrary.Backend.Models;
-public class SpellsModel : ISpellsModel
+public class SpellsModel : XmlDataModelBase<Spell>, ISpellsModel
 {
-    public List<Spell> Spells { get; set; } = new();
-    
-    private bool IsLoaded { get; set; }
-    
-    private IXmlLoadManager XmlLoadManager { get; }
-
-    public SpellsModel(IXmlLoadManager iXmlLoadManager)
-    {
-        XmlLoadManager = iXmlLoadManager;
-    }
-    
-
-    public async Task<List<Spell>> GetSpells()
-    {
-        if (IsLoaded)
-        {
-            return Spells;
-        }
-        
-        return await LoadSpells();
-    }
-
-    private async Task<List<Spell>> LoadSpells()
+    private protected override async Task<List<Spell>> LoadItems()
     {
         var xml = await XmlLoadManager.GetXml<SpellsXmlRecord>();
-        Spells = xml.Spells;
+        Items = xml.Spells;
         IsLoaded = true;
-        return Spells;
+        return Items;
     }
-    
+
+    public SpellsModel(IXmlLoadManager xmlLoadManager) : base(xmlLoadManager)
+    {
+    }
 }

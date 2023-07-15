@@ -3,7 +3,7 @@ using ChummerDBRazorLibrary.Backend.xml;
 
 namespace ChummerDBRazorLibrary.Backend.Models;
 
-public interface IComplexFormsModel: IXmlDataModelBase<ComplexForm>
+public interface IArmorsModel: IXmlDataModelBase<Armor>
 {
-
+    
 }

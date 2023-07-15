@@ -20,7 +20,7 @@ public partial class ComplexFormsViewModel: ViewModelBase, IComplexFormsViewMode
     
     public override async Task Loaded()
     {
-        var spells =(await ComplexFormsModel.GetComplexForms()).OrderBy(spell => spell.Name);
+        var spells =(await ComplexFormsModel.GetItems()).OrderBy(spell => spell.Name);
         
         ComplexForms = new ReadOnlyObservableCollection<ComplexForm>(new ObservableCollection<ComplexForm>(spells));
     }
