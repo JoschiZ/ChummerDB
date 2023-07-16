@@ -73,5 +73,11 @@
       <Compile Update="Backend\Models\IArmorsModel.cs">
         <DependentUpon>ArmorsModel.cs</DependentUpon>
       </Compile>
+      <Compile Update="Components\ArmorCardViewModel.cs">
+        <DependentUpon>ArmorCard.razor</DependentUpon>
+      </Compile>
+      <Compile Update="Components\IArmorCardViewModel.cs">
+        <DependentUpon>ArmorCardViewModel.cs</DependentUpon>
+      </Compile>
     </ItemGroup>
 </Project>

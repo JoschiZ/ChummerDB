@@ -32,16 +32,16 @@ else
                         <PropertyColumn Property="complexForm => complexForm.Name" Title="Complex Form Name"></PropertyColumn>
                         <PropertyColumn Property="complexForm => complexForm.Drain" Title="Fade"></PropertyColumn>
                         <PropertyColumn Property="complexForm => complexForm.Duration"></PropertyColumn>
-                        <TemplateColumn Title="Source" Filterable="false">
-                            <CellTemplate>
-                                <DisplaySource SourceObject="@context.Item"></DisplaySource>
-                            </CellTemplate>
-                        </TemplateColumn>
                         <PropertyColumn Property="complexForm => complexForm.Target" Grouping>
                             <GroupTemplate>
                                 <span style="font-weight:bold">Target: @context.Grouping.Key <MudChip Variant="Variant.Outlined" Color="Color.Info" Size="Size.Small">total @context.Grouping.Count()</MudChip></span>
                             </GroupTemplate>
                         </PropertyColumn>
+                        <TemplateColumn Title="Source" Filterable="false">
+                            <CellTemplate>
+                                <DisplaySource SourceObject="@context.Item"></DisplaySource>
+                            </CellTemplate>
+                        </TemplateColumn>
                     </Columns>
                     <ChildRowContent>
                         <ComplexFormCard ComplexForm="@context.Item"></ComplexFormCard>

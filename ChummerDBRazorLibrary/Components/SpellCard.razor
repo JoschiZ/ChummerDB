@@ -6,9 +6,9 @@
     <MudCard>
         <MudCardHeader>
             <CardHeaderContent>
-                <div class="d-flex justify-lg-space-between align-content-end">
+                <MudStack Row Justify="Justify.SpaceBetween">
                     <MudText Typo="Typo.h6" Color="Color.Primary">@ViewModel.Spell.Name</MudText><DisplaySource SourceObject="ViewModel.Spell"></DisplaySource>
-                </div>
+                </MudStack>
                 @if (ViewModel.Spell.Descriptor != string.Empty)
                 {
                     <MudText Color="Color.Tertiary" Typo="Typo.subtitle1">(@ViewModel.Spell.Descriptor)</MudText>

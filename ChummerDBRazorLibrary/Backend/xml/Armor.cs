@@ -5,7 +5,7 @@ using ChummerDBRazorLibrary.Backend.xml.Interfaces;
 namespace ChummerDBRazorLibrary.Backend.xml;
 
 [XmlRoot(ElementName="armor")]
-public class Armor: IHasSource
+public class Armor: IHasSource, IHasCost, IHasAvailability
 {
 
 	[XmlElement(ElementName = "id")] 
@@ -63,7 +63,7 @@ public class Armor: IHasSource
 	public List<BaseBonus> WirelessBonus { get; set; } = new();
 
 
-	//TODO: This has a rating and maxrating attrbute that is currently ignored
+	//TODO: This has a rating and maxrating attribute that is currently ignored
 	[XmlArray("mods")]
 	[XmlArrayItem("name")]
 	public List<string> Mods { get; set; } = new List<string>();
