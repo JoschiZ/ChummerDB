@@ -17,7 +17,7 @@ public partial class DisplaySourceViewModel: ViewModelBase
         BooksModelBase = booksModelBase;
     }
 
-    private IBooksModelBase BooksModelBase { get; set; }
+    private IBooksModelBase BooksModelBase { get; }
 
     public override async Task OnParametersSetAsync()
     {

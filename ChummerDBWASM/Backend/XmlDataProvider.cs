@@ -9,7 +9,7 @@ public class XmlDataProvider: IXmlDataProvider
         HttpClient = httpClient;
     }
 
-    private HttpClient HttpClient { get; set; }
+    private HttpClient HttpClient { get; }
     
 
     public Task<Stream> GetData(string path)

@@ -9,5 +9,7 @@ public class SkillBonus: BaseBonus
     public string Name { get; set; } = string.Empty;
     
     [XmlElement("bonus")]
-    public int ModifierAmount { get; set; }
+    public int Amount { get; set; }
+    
+    public override string DisplayString => $"{Name}: {Amount}";
 }

@@ -6,7 +6,7 @@ namespace ChummerDBRazorLibrary.Backend.Models;
 
 public class BooksModelBase: XmlDataModelBase<Book>, IBooksModelBase
 {
-    private Dictionary<string, Book> BookCache { get; } = new Dictionary<string, Book>();
+    private Dictionary<string, Book> BookCache { get; } = new();
     
     private protected override async Task<List<Book>> LoadItems()
     {

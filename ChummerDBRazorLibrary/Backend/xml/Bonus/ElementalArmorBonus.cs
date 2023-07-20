@@ -1,5 +1,4 @@
 using System.Xml.Serialization;
-using ChummerDBRazorLibrary.Backend.Enums;
 
 namespace ChummerDBRazorLibrary.Backend.xml.Bonus;
 
@@ -9,6 +8,8 @@ public abstract class ResistBonusBase : BaseBonus
     public string Amount { get; set; } = string.Empty;
     
     public abstract string Name { get; }
+
+    public override string DisplayString => $"{Name}: {Amount}";
 }
 
 [XmlRoot("firearmor")]

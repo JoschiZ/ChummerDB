@@ -7,9 +7,11 @@ public abstract class Immunities: BaseBonus
     [XmlText]
     public string? InnerText { get; set; }
 
-    public bool IsImmune => InnerText is null;
+    private bool IsImmune => InnerText is null;
 
     public abstract string Name { get; }
+
+    public override string DisplayString => IsImmune ? Name : string.Empty;
 }
 
 [XmlRoot("toxininhalationimmune")]

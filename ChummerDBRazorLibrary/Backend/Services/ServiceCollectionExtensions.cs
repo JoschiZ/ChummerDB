@@ -28,6 +28,7 @@ public static class ServiceCollectionExtensions
         services.AddTransient<DisplaySourceViewModel>();
         services.AddTransient<ComplexFormCardViewModel>();
         services.AddTransient<ArmorCardViewModel>();
+        services.AddTransient<BonusCardViewModel>();
         return services;
     }
     

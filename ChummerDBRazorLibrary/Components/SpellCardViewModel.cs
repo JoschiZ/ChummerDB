@@ -2,10 +2,6 @@ using ChummerDBRazorLibrary.Backend.Bases;
 using ChummerDBRazorLibrary.Backend.xml;
 using ChummerDBRazorLibrary.Backend.xml.Extensions;
 using CommunityToolkit.Mvvm.ComponentModel;
-using IHasDamageExtensions = ChummerDBRazorLibrary.Backend.xml.Extensions.IHasDamageExtensions;
-using IHasDrainExtensions = ChummerDBRazorLibrary.Backend.xml.Extensions.IHasDrainExtensions;
-using IHasDurationExtensions = ChummerDBRazorLibrary.Backend.xml.Extensions.IHasDurationExtensions;
-using SpellExtensions = ChummerDBRazorLibrary.Backend.xml.Extensions.SpellExtensions;
 
 namespace ChummerDBRazorLibrary.Components;
 

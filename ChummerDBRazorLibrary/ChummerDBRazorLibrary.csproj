@@ -79,5 +79,8 @@
       <Compile Update="Components\IArmorCardViewModel.cs">
         <DependentUpon>ArmorCardViewModel.cs</DependentUpon>
       </Compile>
+      <Compile Update="Components\BonusCardViewModel.cs">
+        <DependentUpon>BonusCard.razor</DependentUpon>
+      </Compile>
     </ItemGroup>
 </Project>

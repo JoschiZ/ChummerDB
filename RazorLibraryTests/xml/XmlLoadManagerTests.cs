@@ -1,4 +1,3 @@
-using System.Reflection;
 using ChummerDBRazorLibrary.Backend.Interfaces;
 using ChummerDBRazorLibrary.Backend.xml;
 using NSubstitute;
@@ -9,13 +8,11 @@ namespace RazorLibraryTests.xml;
 
 public class XmlLoadManagerTests
 {
-    private readonly ITestOutputHelper _testOutputHelper;
     private readonly IXmlDataProvider _xmlDataProvider;
     private readonly XmlLoadManager _xmlLoadManager;
 
-    public XmlLoadManagerTests(ITestOutputHelper testOutputHelper)
+    public XmlLoadManagerTests()
     {
-        _testOutputHelper = testOutputHelper;
         _xmlDataProvider = Substitute.For<IXmlDataProvider>();
         _xmlLoadManager = new XmlLoadManager(_xmlDataProvider);
     }

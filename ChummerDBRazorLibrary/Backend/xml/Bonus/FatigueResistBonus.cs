@@ -6,5 +6,9 @@ namespace ChummerDBRazorLibrary.Backend.xml.Bonus;
 public class FatigueResistBonus: BaseBonus
 {
     [XmlText]
-    public int ModifierAmount { get; set; }
+    public int Amount { get; set; }
+
+    public string Name => "Fatigue Resistance";
+    
+    public override string DisplayString => $"{Name}: {Amount}";
 }

@@ -28,8 +28,8 @@ public class ArmorMod: IHasSource {
 	[XmlElement(ElementName = "avail")] 
 	public string Availability { get; set; } = string.Empty;
 
-	[XmlElement(ElementName="cost")] 
-	public string Cost { get; set; } 
+	[XmlElement(ElementName = "cost")] 
+	public string Cost { get; set; } = string.Empty;
 
 	[XmlElement(ElementName="source")] 
 	public string Source { get; set; } = string.Empty;
