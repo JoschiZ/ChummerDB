@@ -1,0 +1,35 @@
+@inherits MvvmComponentBase<DynamicPopoverCardViewModel<TItem, ModelType>>
+@typeparam TItem
+@typeparam TCard where TCard : ICard<TItem>
+@typeparam ModelType
+
+@if (ViewModel.Item is not null)
+{
+    <MudPopover Open="ViewModel.IsOpen">
+        <DynamicComponent Type="ViewModel.Type" Parameters="ViewModel.Parameters"></DynamicComponent>
+    </MudPopover>
+    
+    <MudButton OnClick="@ViewModel.ToggleCommand.Execute">Open</MudButton>
+}
+
+
+@code {
+    [Parameter]
+    public IDictionary<string, object>? Parameters { get; set; }
+    
+    [Parameter]
+    public TItem? Item { get; set; }
+    
+    [Parameter]
+    public string? ItemName { get; set; }
+    
+    
+
+    protected override void OnParametersSet()
+    {
+        ViewModel.Parameters = Parameters;
+        ViewModel.ItemName = ItemName;
+        ViewModel.Type = typeof(TCard);
+        ViewModel.OnParametersSet();
+    }
+}

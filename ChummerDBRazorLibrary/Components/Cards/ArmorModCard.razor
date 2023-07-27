@@ -1,0 +1,30 @@
+@using ChummerDBRazorLibrary.Backend.xml
+@inherits MvvmComponentBase<ArmorModViewModel>
+
+@if (ViewModel.ArmorMod is not null)
+{
+    <MudCard Outlined>
+        <MudCardHeader>
+            <MudStack Row Justify="Justify.SpaceBetween"><MudText Typo="Typo.h6" Color="Color.Primary">@ViewModel.ArmorMod.Name</MudText>
+                <DisplaySource SourceObject="ViewModel.ArmorMod"></DisplaySource></MudStack>
+            <MudText Color="Color.Tertiary" Typo="Typo.subtitle1">(@ViewModel.ArmorMod.Category)</MudText>
+            <MudDivider/>
+        </MudCardHeader>
+        <MudCardContent>
+
+        </MudCardContent>
+    </MudCard>
+}
+
+
+@code {
+    [Parameter]
+    public ArmorMod? ArmorMod { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        ViewModel.ArmorMod = ArmorMod;
+    }
+    
+    
+}

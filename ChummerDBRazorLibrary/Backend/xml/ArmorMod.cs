@@ -51,7 +51,7 @@ public class ArmorMod: IHasSource {
 	[XmlArrayItem("electricityarmor", typeof(ElectricityResistBonus))]
 	[XmlArrayItem("toxincontactresist", typeof(ContactToxinResist))]
 	[XmlArrayItem("pathogencontactresist", typeof(PathogenContactResist))]
-	public List<BaseBonus> Bonus { get; set; } = new();
+	public List<BaseBonus> Bonuses { get; set; } = new();
 
 	[XmlElement(ElementName="gearcapacity")] 
 	public int GearCapacity { get; set; }
@@ -73,5 +73,5 @@ public class ArmorMod: IHasSource {
 	[XmlArrayItem("electricityarmor", typeof(ElectricityResistBonus))]
 	[XmlArrayItem("toxincontactresist", typeof(ContactToxinResist))]
 	[XmlArrayItem("pathogencontactresist", typeof(PathogenContactResist))]
-	public List<BaseBonus> Wirelessbonus { get; set; } = new();
+	public List<BaseBonus> WirelessBonuses { get; set; } = new();
 }

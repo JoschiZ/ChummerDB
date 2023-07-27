@@ -14,7 +14,7 @@ else
             </CardHeaderContent>
         </MudCardHeader>
         <MudCardContent>
-            <DataGridFilterControl DataGrid="DataGrid"></DataGridFilterControl>
+            <DataGridFilterControl ParentStateHasChanged="StateHasChanged" DataGrid="DataGrid"></DataGridFilterControl>
             <MudDataGrid @ref="DataGrid" Dense Items="@ViewModel.Spells" Groupable Hideable FilterCaseSensitivity="DataGridFilterCaseSensitivity.CaseInsensitive" ShowColumnOptions Filterable SortMode="SortMode.Multiple" ShowFilterIcons="false">
                 <Columns>
                     <HierarchyColumn></HierarchyColumn>

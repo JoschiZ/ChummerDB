@@ -14,7 +14,7 @@ else
             </CardHeaderContent>
         </MudCardHeader>
         <MudCardContent>
-            <DataGridFilterControl DataGrid="DataGrid"></DataGridFilterControl>
+            <DataGridFilterControl DataGrid="DataGrid" ParentStateHasChanged="StateHasChanged"></DataGridFilterControl>
                 <MudDataGrid 
                     @ref="DataGrid" 
                     Dense 
@@ -25,13 +25,14 @@ else
                     ShowColumnOptions 
                     Filterable 
                     SortMode="SortMode.Multiple" 
-                    ShowFilterIcons="false"
                     FixedHeader>
                     <Columns>
                         <HierarchyColumn></HierarchyColumn>
                         <PropertyColumn Property="armor => armor.Name" Title="Name"></PropertyColumn>
-                        <PropertyColumn Property="armor => armor.ArmorClass" Title="Armor" Filterable="false" Comparer="@(new MudBlazor.Utilities.NaturalComparer())"></PropertyColumn>
+                        
+                        <PropertyColumn Property="armor => armor.GetDisplayString()" Title="Armor" Filterable="false" Comparer="@(new MudBlazor.Utilities.NaturalComparer())"></PropertyColumn>
                         <PropertyColumn Property="armor => armor.ArmorClass.GetInt()" Title="Armor" Hidden></PropertyColumn>
+                        <PropertyColumn Property="armor => armor.StackingArmor" Title="Stacking Armor" Hidden></PropertyColumn>
                         
                         <PropertyColumn Property="armor => armor.ArmorCapacity" Title="Capacity" Filterable="false" Comparer="@(new MudBlazor.Utilities.NaturalComparer())"></PropertyColumn>
                         <PropertyColumn Property="armor => armor.ArmorCapacity.GetInt()" Title="Capacity" Hidden></PropertyColumn>
@@ -56,7 +57,7 @@ else
                         </PropertyColumn>
                     </Columns>
                     <ChildRowContent>
-                        <ArmorCard Armor="@context.Item"></ArmorCard>
+                        <ArmorCard Item="@context.Item"></ArmorCard>
                     </ChildRowContent>
                 </MudDataGrid>
         </MudCardContent>

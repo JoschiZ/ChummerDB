@@ -1,9 +1,12 @@
 using ChummerDBRazorLibrary.Backend.Interfaces;
 using ChummerDBRazorLibrary.Backend.Models;
 using ChummerDBRazorLibrary.Backend.xml;
+using ChummerDBRazorLibrary.Backend.xml.Bonus;
 using ChummerDBRazorLibrary.Components;
+using ChummerDBRazorLibrary.Components.Cards;
 using ChummerDBRazorLibrary.Views;
 using Microsoft.Extensions.DependencyInjection;
+
 
 namespace ChummerDBRazorLibrary.Backend.Services;
 
@@ -29,6 +32,17 @@ public static class ServiceCollectionExtensions
         services.AddTransient<ComplexFormCardViewModel>();
         services.AddTransient<ArmorCardViewModel>();
         services.AddTransient<BonusCardViewModel>();
+        services.AddTransient<ArmorCardViewModel>();
+        services.AddTransient<ArmorModViewModel>();
+
+        services.RegisterDynamicCards();
+        return services;
+    }
+
+    private static IServiceCollection RegisterDynamicCards(this IServiceCollection services)
+    {
+        services.AddTransient<DynamicPopoverCardViewModel<IEnumerable<BaseBonus>>>();
+
         return services;
     }
     
@@ -38,6 +52,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IBooksModelBase, BooksModelBase>();
         services.AddSingleton<IComplexFormsModel, ComplexFormsModel>();
         services.AddSingleton<IArmorsModel, ArmorsModel>();
+        services.AddSingleton<IArmorModsModel, ArmorModsModel>();
         return services;
     }
 }

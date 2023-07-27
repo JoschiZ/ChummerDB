@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 namespace ChummerDBRazorLibrary.Backend.xml;
 
 [XmlRoot("chummer")]
-public class ArmorXmlRecord
+public sealed class ArmorXmlRecord
 {
     [XmlArray("armors")]
     [XmlArrayItem("armor")]

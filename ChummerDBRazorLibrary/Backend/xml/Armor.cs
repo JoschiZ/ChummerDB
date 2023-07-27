@@ -35,6 +35,7 @@ public class Armor: IHasSource, IHasCost, IHasAvailability
 	[XmlElement(ElementName="page")] 
 	public int Page { get; set; }
     
+	//TODO: Add cards linked to the gears
 	[XmlArray("gears")]
 	[XmlArrayItem("usegear")]
 	public List<Gear> Gears { get; set; } = new(); 
@@ -53,14 +54,14 @@ public class Armor: IHasSource, IHasCost, IHasAvailability
 	[XmlArrayItem("limitmodifier", typeof(LimitBonus))]
 	[XmlArrayItem("skillcategory", typeof(SkillCategoryBonus))]
 	[XmlArrayItem("specificskill", typeof(SkillBonus))]
-	public List<BaseBonus> Bonus { get; set; } = new();
+	public List<BaseBonus> Bonuses { get; set; } = new();
 
 	[XmlArray("wirelessbonus")]
 	[XmlArrayItem("fatigueresist", typeof(FatigueResistBonus))]
 	[XmlArrayItem("limitmodifier", typeof(LimitBonus))]
 	[XmlArrayItem("skillcategory", typeof(SkillCategoryBonus))]
 	[XmlArrayItem("specificskill", typeof(SkillBonus))]
-	public List<BaseBonus> WirelessBonus { get; set; } = new();
+	public List<BaseBonus> WirelessBonuses { get; set; } = new();
 
 
 	//TODO: This has a rating and maxrating attribute that is currently ignored

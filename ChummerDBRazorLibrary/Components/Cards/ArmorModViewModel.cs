@@ -1,11 +1,12 @@
 using ChummerDBRazorLibrary.Backend.Bases;
+using ChummerDBRazorLibrary.Backend.Models;
 using ChummerDBRazorLibrary.Backend.xml;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ChummerDBRazorLibrary.Components;
 
-public partial class ArmorCardViewModel: ViewModelBase
+public partial class ArmorModViewModel: ViewModelBase
 {
-    [ObservableProperty] 
-    private Armor? _armor;
+    [ObservableProperty]
+    private ArmorMod? _armorMod;
 }

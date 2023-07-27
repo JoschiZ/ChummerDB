@@ -2,7 +2,7 @@
 
 <MudStack Row>
     <MudButtonGroup Style="width: 100%" OverrideStyles="false">
-            <MudButton EndIcon="@Icons.Material.Filled.FilterList" FullWidth Size="Size.Small" Variant="Variant.Filled" Color="Color.Primary" OnClick="() => DataGrid?.ToggleFiltersMenu()">Filter</MudButton>
+            <MudButton EndIcon="@Icons.Material.Filled.FilterList" FullWidth Size="Size.Small" Variant="Variant.Filled" Color="Color.Primary" OnClick="() => DataGrid?.ToggleFiltersMenu()">Advanced Filter</MudButton>
             <MudButton EndIcon="@Icons.Material.Filled.DeleteSweep" Size="Size.Small" Variant="Variant.Filled" Color="Color.Secondary" OnClick="ResetFilterButton">Clear</MudButton>
     </MudButtonGroup>
 
@@ -10,14 +10,14 @@
 
 @code {
     [Parameter]
-    public MudDataGrid<T>? DataGrid { get; set; }
+    public required MudDataGrid<T> DataGrid { get; set; }
+    
+    [Parameter]
+    public required Action ParentStateHasChanged { get; set; }
 
     private async Task ResetFilterButton()
     {
-        if (DataGrid != null)
-        {
-            await DataGrid.ClearFiltersAsync();
-            StateHasChanged();
-        }
+        await DataGrid.ClearFiltersAsync();
+        ParentStateHasChanged();
     }
 }

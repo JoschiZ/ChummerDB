@@ -4,7 +4,7 @@ using ChummerDBRazorLibrary.Backend.xml;
 
 namespace ChummerDBRazorLibrary.Backend.Models;
 
-public class ArmorsModel : XmlDataModelBase<Armor>, IArmorsModel
+public sealed class ArmorsModel : XmlDataModelBase<Armor>, IArmorsModel
 {
     public ArmorsModel(IXmlLoadManager xmlLoadManager) : base(xmlLoadManager)
     {

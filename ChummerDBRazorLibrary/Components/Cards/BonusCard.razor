@@ -1,19 +1,18 @@
 @using ChummerDBRazorLibrary.Backend.xml.Bonus
 @inherits MvvmComponentBase<BonusCardViewModel>
+@implements ICard<IEnumerable<BaseBonus>>
 
-@if (ViewModel.Bonuses.Any())
+@if (ViewModel.Bonuses is not null && ViewModel.Bonuses.Any())
 {
     <MudCard Outlined>
         <MudCardContent>
-            <MudText Color="Color.Info" Typo="Typo.h4">Bonuses</MudText>
+            <MudText Color="Color.Info" Typo="Typo.subtitle1">@Title</MudText>
             @foreach (var bonus in ViewModel.Bonuses)
             {
                 <MudText>@bonus.DisplayString</MudText>
             }
         </MudCardContent>
     </MudCard>
-    
-
 }
 
 
@@ -21,11 +20,14 @@
 @code {
 
     [Parameter]
-    public IEnumerable<BaseBonus> Bonuses { get; set; } = Enumerable.Empty<BaseBonus>();
+    public required IEnumerable<BaseBonus>? Item { get; set; } = Enumerable.Empty<BaseBonus>();
 
+    [Parameter]
+    public string Title { get; set; } = "Bonuses";
+    
     protected override void OnParametersSet()
     {
-        ViewModel.Bonuses = Bonuses;
+        ViewModel.Bonuses = Item;
     }
 
 }
