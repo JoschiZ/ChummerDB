@@ -26,4 +26,9 @@ public abstract class MvvmComponentBase<TViewModel>: ComponentBase where TViewMo
     {
         return ViewModel.OnParametersSetAsync();
     }
+
+    protected override void OnParametersSet()
+    {
+        ViewModel.OnParametersSet();
+    }
 }

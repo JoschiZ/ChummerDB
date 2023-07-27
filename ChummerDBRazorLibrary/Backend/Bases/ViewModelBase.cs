@@ -22,4 +22,9 @@ public abstract partial class ViewModelBase: ObservableObject, IViewModelBase
     }
 
     protected virtual void NotifyStateChanged() => OnPropertyChanged((string?) null);
+
+    public virtual void OnParametersSet()
+    {
+        
+    }
 }

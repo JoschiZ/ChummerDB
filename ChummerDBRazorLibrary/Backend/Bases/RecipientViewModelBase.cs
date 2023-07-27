@@ -24,5 +24,10 @@ public abstract partial class RecipientViewModelBase<TMessage>: ObservableRecipi
         await Loaded().ConfigureAwait(false);
     }
 
+    public void OnParametersSet()
+    {
+        
+    }
+
     public abstract void Receive(TMessage message);
 }
