@@ -4,7 +4,7 @@ using ChummerDBRazorLibrary.Backend.xml.Interfaces;
 namespace ChummerDBRazorLibrary.Backend.xml;
 
 [XmlRoot(ElementName="complexform")]
-public class ComplexForm: IHasSource, IHasDuration, IHasDrain { 
+public class ComplexForm: IHasSource, IHasDuration, IHasDrain, IHasName { 
 
     [XmlElement(ElementName="id")] 
     public Guid Id { get; set; }

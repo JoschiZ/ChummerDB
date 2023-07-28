@@ -34,8 +34,8 @@
       <Compile Update="Components\SpellCardViewModel.cs">
         <DependentUpon>SpellCard.razor</DependentUpon>
       </Compile>
-      <Compile Update="Backend\Models\IBooksModelBase.cs">
-        <DependentUpon>BooksModelBase.cs</DependentUpon>
+      <Compile Update="Backend\Models\IBooksModel.cs">
+        <DependentUpon>BooksModel.cs</DependentUpon>
       </Compile>
       <Compile Update="Backend\Models\IComplexFormsModel.cs">
         <DependentUpon>ComplexFormsModel.cs</DependentUpon>
@@ -67,8 +67,35 @@
       <Compile Update="Backend\Models\IArmorsModel.cs">
         <DependentUpon>ArmorsModel.cs</DependentUpon>
       </Compile>
-      <Compile Update="Components\Cards\DynamicPopoverCardViewModel.cs">
-        <DependentUpon>DynamicPopoverCard.razor</DependentUpon>
+      <Compile Update="Components\Cards\DynamicCardViewModel.cs">
+        <DependentUpon>DynamicCard.razor</DependentUpon>
+      </Compile>
+      <Compile Update="Backend\Models\IArmorModsModel.cs">
+        <DependentUpon>ArmorModsModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Components\Cards\IArmorCardViewModel.cs">
+        <DependentUpon>ArmorCardViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Components\Cards\IComplexFormCardViewModel.cs">
+        <DependentUpon>ComplexFormCardViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Components\Cards\ComplexFormCardViewModel.cs">
+        <DependentUpon>ComplexFormCard.razor</DependentUpon>
+      </Compile>
+      <Compile Update="Components\Cards\BonusCardViewModel.cs">
+        <DependentUpon>BonusCard.razor</DependentUpon>
+      </Compile>
+      <Compile Update="Components\Cards\ArmorModViewModel.cs">
+        <DependentUpon>ArmorModCard.razor</DependentUpon>
+      </Compile>
+      <Compile Update="Components\Cards\ArmorCardViewModel.cs">
+        <DependentUpon>ArmorCard.razor</DependentUpon>
+      </Compile>
+      <Compile Update="Components\Cards\PopoverCardViewModel.cs">
+        <DependentUpon>PopoverCard.razor</DependentUpon>
+      </Compile>
+      <Compile Update="Backend\Bases\INamedXmlDataModel.cs">
+        <DependentUpon>NamedXmlDataModelBase.cs</DependentUpon>
       </Compile>
     </ItemGroup>
 </Project>

@@ -1,9 +1,10 @@
 using ChummerDBRazorLibrary.Backend.Bases;
+using ChummerDBRazorLibrary.Backend.Interfaces;
 using ChummerDBRazorLibrary.Backend.xml;
 
 namespace ChummerDBRazorLibrary.Backend.Models;
 
-public interface IArmorsModel: IXmlDataModelBase<Armor>
+public interface IArmorsModel: INamedXmlDataModel<Armor>
 {
     
 }

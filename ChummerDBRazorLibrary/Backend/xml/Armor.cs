@@ -5,7 +5,7 @@ using ChummerDBRazorLibrary.Backend.xml.Interfaces;
 namespace ChummerDBRazorLibrary.Backend.xml;
 
 [XmlRoot(ElementName="armor")]
-public class Armor: IHasSource, IHasCost, IHasAvailability
+public class Armor: IHasSource, IHasCost, IHasAvailability, IHasName
 {
 
 	[XmlElement(ElementName = "id")] 

@@ -19,6 +19,6 @@ public partial class ArmorCardViewModel: ViewModelBase
     
     public async Task<ArmorMod?> GetArmorMod(string name)
     {
-        return await _armorModsModel.GetArmorMod(name);
+        return await _armorModsModel.GetItemByName(name);
     }
 }

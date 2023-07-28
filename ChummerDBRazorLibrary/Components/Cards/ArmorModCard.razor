@@ -1,5 +1,6 @@
 @using ChummerDBRazorLibrary.Backend.xml
 @inherits MvvmComponentBase<ArmorModViewModel>
+@implements ICard<ArmorMod>
 
 @if (ViewModel.ArmorMod is not null)
 {
@@ -19,11 +20,11 @@
 
 @code {
     [Parameter]
-    public ArmorMod? ArmorMod { get; set; }
+    public ArmorMod? Item { get; set; }
 
     protected override void OnParametersSet()
     {
-        ViewModel.ArmorMod = ArmorMod;
+        ViewModel.ArmorMod = Item;
     }
     
     

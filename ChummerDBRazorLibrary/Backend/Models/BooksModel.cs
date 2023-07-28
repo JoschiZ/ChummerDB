@@ -4,7 +4,7 @@ using ChummerDBRazorLibrary.Backend.xml;
 
 namespace ChummerDBRazorLibrary.Backend.Models;
 
-public class BooksModelBase: XmlDataModelBase<Book>, IBooksModelBase
+public class BooksModel: NamedXmlDataModelBase<Book>, IBooksModel
 {
     private Dictionary<string, Book> BookCache { get; } = new();
     
@@ -13,7 +13,7 @@ public class BooksModelBase: XmlDataModelBase<Book>, IBooksModelBase
         var books = await XmlLoadManager.GetXml<BooksXmlRecord>();
         Items = books.Books;
         IsLoaded = true;
-        return Items;
+        return await GetItems();
     }
 
     public async Task<Book> GetBook(string bookCode)
@@ -30,7 +30,7 @@ public class BooksModelBase: XmlDataModelBase<Book>, IBooksModelBase
         return searchedBook;
     }
 
-    public BooksModelBase(IXmlLoadManager xmlLoadManager) : base(xmlLoadManager)
+    public BooksModel(IXmlLoadManager xmlLoadManager) : base(xmlLoadManager)
     {
     }
 }

@@ -12,18 +12,18 @@ public partial class DisplaySourceViewModel: ViewModelBase
     [ObservableProperty] private IHasSource? _sourceObject;
     [ObservableProperty] private Book? _book;
 
-    public DisplaySourceViewModel(IBooksModelBase booksModelBase)
+    public DisplaySourceViewModel(IBooksModel booksModel)
     {
-        BooksModelBase = booksModelBase;
+        BooksModel = booksModel;
     }
 
-    private IBooksModelBase BooksModelBase { get; }
+    private IBooksModel BooksModel { get; }
 
     public override async Task OnParametersSetAsync()
     {
         if (SourceObject is not null)
         {
-            Book = await BooksModelBase.GetBook(SourceObject.Source);
+            Book = await BooksModel.GetBook(SourceObject.Source);
         }
     }
     

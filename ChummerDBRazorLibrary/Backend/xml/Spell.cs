@@ -4,7 +4,7 @@ using ChummerDBRazorLibrary.Backend.xml.Interfaces;
 namespace ChummerDBRazorLibrary.Backend.xml;
 
 [XmlRoot(ElementName="spell")]
-public class Spell: IHasSource, IHasDamage, IHasDuration, IHasDrain { 
+public class Spell: IHasSource, IHasDamage, IHasDuration, IHasDrain, IHasName { 
 
 	[XmlElement(ElementName="id")] 
 	public Guid Id { get; set; } 

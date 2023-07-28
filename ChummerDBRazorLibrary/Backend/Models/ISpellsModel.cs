@@ -1,8 +1,9 @@
 using ChummerDBRazorLibrary.Backend.Bases;
+using ChummerDBRazorLibrary.Backend.Interfaces;
 using ChummerDBRazorLibrary.Backend.xml;
 
 namespace ChummerDBRazorLibrary.Backend.Models;
 
-public interface ISpellsModel: IXmlDataModelBase<Spell>
+public interface ISpellsModel: INamedXmlDataModel<Spell>
 {
 }

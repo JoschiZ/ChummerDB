@@ -5,7 +5,8 @@ using ChummerDBRazorLibrary.Backend.xml.Interfaces;
 namespace ChummerDBRazorLibrary.Backend.xml;
 
 [XmlRoot(ElementName="mod")]
-public class ArmorMod: IHasSource { 
+public class ArmorMod: IHasSource, IHasName
+{ 
 
 	[XmlElement(ElementName="id")] 
 	public Guid Id { get; set; } 

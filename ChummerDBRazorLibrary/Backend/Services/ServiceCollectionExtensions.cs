@@ -15,6 +15,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddChummerDBServices(this IServiceCollection services)
     {
         services.AddSingleton<IXmlLoadManager, XmlLoadManager>();
+        services.AddSingleton<ModelProvider>();
         services.RegisterViewModels().RegisterModels();
         return services;
     }
@@ -41,7 +42,9 @@ public static class ServiceCollectionExtensions
 
     private static IServiceCollection RegisterDynamicCards(this IServiceCollection services)
     {
-        services.AddTransient<DynamicPopoverCardViewModel<IEnumerable<BaseBonus>>>();
+        services.AddTransient<DynamicCardViewModel<ArmorMod>>();
+        services.AddTransient<PopoverCardViewModel>();
+        
 
         return services;
     }
@@ -49,7 +52,7 @@ public static class ServiceCollectionExtensions
     private static IServiceCollection RegisterModels(this IServiceCollection services)
     {
         services.AddSingleton<ISpellsModel, SpellsModel>();
-        services.AddSingleton<IBooksModelBase, BooksModelBase>();
+        services.AddSingleton<IBooksModel, BooksModel>();
         services.AddSingleton<IComplexFormsModel, ComplexFormsModel>();
         services.AddSingleton<IArmorsModel, ArmorsModel>();
         services.AddSingleton<IArmorModsModel, ArmorModsModel>();

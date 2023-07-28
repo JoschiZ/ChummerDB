@@ -28,6 +28,12 @@
                     <PropertyDisplay Label="Includes a mod from" Value="@string.Join(", ", ViewModel.Armor.SelectModsFromCategory)"></PropertyDisplay>
                 }
             </div>
+            
+            @foreach (var mod in ViewModel.Armor.Mods)
+            {
+                <p>Mod Name @mod</p> 
+                <PopoverCard TCard="ArmorModCard" TItem="ArmorMod" ItemName="@mod"></PopoverCard>
+            }
 
 
             
@@ -42,8 +48,6 @@
 
         </MudCardContent>
     </MudCard>
-    
-    <DynamicPopoverCard TItem="IEnumerable<BaseBonus>" TCard="BonusCard" Item="ViewModel.Armor.WirelessBonuses"/>
 }
 
 <style>
@@ -74,5 +78,4 @@
     {
         ViewModel.Armor = Item;
     }
-
 }

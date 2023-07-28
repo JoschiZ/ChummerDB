@@ -1,0 +1,30 @@
+@inherits MvvmComponentBase<DynamicCardViewModel<TItem>>
+@typeparam TItem where TItem: ChummerDBRazorLibrary.Backend.xml.Interfaces.IHasName
+@typeparam TCard where TCard : ICard<TItem>
+
+
+<DynamicComponent Type="ViewModel.CardType" Parameters="ViewModel.Parameters"></DynamicComponent>
+
+
+
+@code {
+    [Parameter]
+    public IDictionary<string, object>? Parameters { get; set; }
+    
+    [Parameter]
+    public TItem? Item { get; set; }
+    
+    [Parameter, EditorRequired]
+    public required string ItemName { get; set; }
+    
+    
+
+    protected override Task OnParametersSetAsync()
+    {
+        ViewModel.Parameters = Parameters;
+        ViewModel.ItemName = ItemName;
+        ViewModel.Item = Item;
+        ViewModel.CardType = typeof(TCard);
+        return ViewModel.OnParametersSetAsync();
+    }
+}

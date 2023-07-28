@@ -5,5 +5,5 @@ namespace ChummerDBRazorLibrary.Backend.Models;
 
 public interface IArmorModsModel: IXmlDataModelBase<ArmorMod>
 {
-    public Task<ArmorMod?> GetArmorMod(string name);
+    public Task<ArmorMod?> GetItemByName(string name);
 }

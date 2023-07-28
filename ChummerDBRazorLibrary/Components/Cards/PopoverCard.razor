@@ -1,0 +1,19 @@
+@inherits MvvmComponentBase<PopoverCardViewModel>
+@typeparam TItem where TItem: ChummerDBRazorLibrary.Backend.xml.Interfaces.IHasName
+@typeparam TCard where TCard : ICard<TItem>
+
+<MudPopover Open="ViewModel.Open">
+    <DynamicCard TCard="TCard" TItem="TItem" ItemName="@ItemName" Parameters="Parameters" Item="Item"></DynamicCard>
+</MudPopover>
+<MudButton OnClick="@ViewModel.ToggleCommand.Execute">@ItemName</MudButton>
+
+@code {
+    [Parameter, EditorRequired]
+    public required string ItemName { get; set; }
+    
+    [Parameter]
+    public IDictionary<string, object>? Parameters { get; set; }
+    
+    [Parameter]
+    public TItem? Item { get; set; }
+}

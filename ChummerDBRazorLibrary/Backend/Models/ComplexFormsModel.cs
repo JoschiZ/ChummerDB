@@ -4,14 +4,14 @@ using ChummerDBRazorLibrary.Backend.xml;
 
 namespace ChummerDBRazorLibrary.Backend.Models;
 
-public class ComplexFormsModel: XmlDataModelBase<ComplexForm>, IComplexFormsModel
+public class ComplexFormsModel: NamedXmlDataModelBase<ComplexForm>, IComplexFormsModel
 {
     private protected override async Task<List<ComplexForm>> LoadItems()
     {
         var xml = await XmlLoadManager.GetXml<ComplexFormsXmlRecord>();
         Items = xml.ComplexForms.OrderBy(form => form.Name).ToList();
         IsLoaded = true;
-        return Items;
+        return await GetItems();
     }
 
     public ComplexFormsModel(IXmlLoadManager xmlLoadManager) : base(xmlLoadManager)

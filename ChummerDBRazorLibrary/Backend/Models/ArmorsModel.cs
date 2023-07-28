@@ -4,7 +4,7 @@ using ChummerDBRazorLibrary.Backend.xml;
 
 namespace ChummerDBRazorLibrary.Backend.Models;
 
-public sealed class ArmorsModel : XmlDataModelBase<Armor>, IArmorsModel
+public sealed class ArmorsModel : NamedXmlDataModelBase<Armor>, IArmorsModel
 {
     public ArmorsModel(IXmlLoadManager xmlLoadManager) : base(xmlLoadManager)
     {
@@ -15,6 +15,6 @@ public sealed class ArmorsModel : XmlDataModelBase<Armor>, IArmorsModel
         var armors = await XmlLoadManager.GetXml<ArmorXmlRecord>();
         Items = armors.Armors.OrderBy(armor => armor.Name).ToList();
         IsLoaded = true;
-        return Items;
+        return await GetItems();
     }
 }
