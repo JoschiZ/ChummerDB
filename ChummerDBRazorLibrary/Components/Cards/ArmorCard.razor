@@ -8,9 +8,14 @@
     <MudCard>
         <MudCardHeader>
             <CardHeaderContent>
-                <MudStack Row Justify="Justify.SpaceBetween"><MudText Typo="Typo.h6" Color="Color.Primary">@ViewModel.Armor.Name</MudText>
-                    <DisplaySource SourceObject="ViewModel.Armor"></DisplaySource></MudStack>
-                <MudText Color="Color.Tertiary" Typo="Typo.subtitle1">(@ViewModel.Armor.Category)</MudText>
+                <MudStack Row Justify="Justify.SpaceBetween">
+                    <MudText Typo="Typo.h6" Color="Color.Primary">@ViewModel.Armor.Name</MudText>
+                    <DisplaySource SourceObject="ViewModel.Armor"></DisplaySource>
+                </MudStack>
+                <MudStack Row Justify="Justify.SpaceBetween" AlignItems="AlignItems.Baseline">
+                    <MudText Color="Color.Tertiary" Typo="Typo.subtitle1">(@ViewModel.Armor.Category)</MudText>
+                    <CostDisplay Typo="Typo.subtitle1" Item="Item"></CostDisplay>
+                </MudStack>
                 <MudDivider/>
             </CardHeaderContent>
         </MudCardHeader>
@@ -18,8 +23,6 @@
             <div class="split-columns">
                 <PropertyDisplay Label="Armor" Value="@ViewModel.Armor.GetDisplayString()"/>
                 <PropertyDisplay Label="Capacity" Value="@ViewModel.Armor.ArmorCapacity"/>
-                <PropertyDisplay Label="Availability" Value="@ViewModel.Armor.Availability"/>
-                <PropertyDisplay Label="Cost" Value="@ViewModel.Armor.GetCostString()"/>
                 <PropertyDisplay Label="Associated Weapon" Value="@ViewModel.Armor.AddWeapon"></PropertyDisplay>
                 <PropertyDisplay Label="Max. Rating" Value="@(ViewModel.Armor.Rating > 0 ? ViewModel.Armor.Rating.ToString() : string.Empty)"></PropertyDisplay>
                 <PropertyDisplay Label="Additional Mod Category" Value="@ViewModel.Armor.AddModCategory"></PropertyDisplay>
@@ -29,23 +32,39 @@
                 }
             </div>
             
-            @foreach (var mod in ViewModel.Armor.Mods)
-            {
-                <p>Mod Name @mod</p> 
-                <PopoverCard TCard="ArmorModCard" TItem="ArmorMod" ItemName="@mod"></PopoverCard>
-            }
-
-
-            
-            @if (ViewModel.Armor.Bonuses.Count > 0 || ViewModel.Armor.WirelessBonuses.Count > 0)
+            @if (ViewModel.Armor.Bonuses.Count > 0 || ViewModel.Armor.WirelessBonuses.Count > 0 || ViewModel.Armor.Mods.Count > 0)
             {
                 <MudDivider Light Style="padding-bottom: 5px; border-top-width: 3px"></MudDivider>
             }
             <div class="card-container">
                 <BonusCard Item="ViewModel.Armor.Bonuses"></BonusCard>
                 <BonusCard Title="Wireless Bonuses" Item="ViewModel.Armor.WirelessBonuses"></BonusCard>
+                @if (ViewModel.Armor.Mods.Count > 0)
+                {
+                    <MudCard Outlined Style="margin: 5px">
+                        <MudCardContent Style="display: flex; align-items: baseline">
+                            <MudText Inline Color="Color.Info" Typo="Typo.subtitle1">Mods: </MudText>
+                            @foreach (var mod in ViewModel.Armor.Mods)
+                            {
+                                <DialogCard TCard="ArmorModCard" TItem="ArmorMod" ItemName="@mod"></DialogCard>
+                            }
+                        </MudCardContent>
+                    </MudCard>   
+                }
+                @if (ViewModel.Armor.Gears.Count > 0)
+                {
+                    <MudCard Outlined Style="margin: 5px">
+                        <MudCardContent Style="display: flex; align-items: baseline">
+                            <MudText Inline Color="Color.Info" Typo="Typo.subtitle1">Gears:  </MudText>
+                                @foreach (var gear in ViewModel.Armor.Gears)
+                                {
+                                    <!--TODO As soon as gears are implemented make a DynamicDialog-->
+                                    <MudText>@gear.Name</MudText>
+                                }
+                        </MudCardContent>
+                    </MudCard>
+                }
             </div>
-
         </MudCardContent>
     </MudCard>
 }

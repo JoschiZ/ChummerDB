@@ -1,4 +1,4 @@
-@if (ChildContent is not null || Value != string.Empty)
+@if (ChildContent is not null || _displayString != string.Empty)
 {
     <MudText><span style="font-weight: bolder">@Label: </span> @ChildContent@Value</MudText>
 }
@@ -10,9 +10,18 @@
     public string Label { get; set; } = string.Empty;
     
     [Parameter]
-    public string Value { get; set; } = string.Empty;
-
-
+    public object? Value { get; set; }
+    
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
+
+    private string _displayString = string.Empty;
+    
+    protected override void OnParametersSet()
+    {
+        _displayString = Value?.ToString() ?? string.Empty;
+        
+        base.OnParametersSet();
+    }
+
 }

@@ -6,7 +6,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ChummerDBRazorLibrary.Views;
 
-public partial class ArmorsViewModel: ViewModelBase, IArmorsViewModel
+public partial class ArmorsViewModel : ViewModelBase, IArmorsViewModel
 {
     public ArmorsViewModel(IArmorsModel armorsModel)
     {
@@ -15,14 +15,11 @@ public partial class ArmorsViewModel: ViewModelBase, IArmorsViewModel
 
     private IArmorsModel ArmorsModel { get; }
 
-    [ObservableProperty] 
-    private ReadOnlyObservableCollection<Armor>?_armors;
+    [ObservableProperty] private ReadOnlyObservableCollection<Armor>? _armors;
 
     public override async Task Loaded()
     {
         var armors = await ArmorsModel.GetItems();
         Armors = new ReadOnlyObservableCollection<Armor>(new ObservableCollection<Armor>(armors));
     }
-    
-    
 }

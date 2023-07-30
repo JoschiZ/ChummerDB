@@ -15,10 +15,8 @@
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
         <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.8" />
         <PackageReference Include="MudBlazor" Version="6.6.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="wwwroot\" />
+        <PackageReference Include="Serilog" Version="3.0.1" />
+        <PackageReference Include="Serilog.Extensions.Logging" Version="7.0.0" />
     </ItemGroup>
 
     <ItemGroup>
@@ -91,11 +89,20 @@
       <Compile Update="Components\Cards\ArmorCardViewModel.cs">
         <DependentUpon>ArmorCard.razor</DependentUpon>
       </Compile>
-      <Compile Update="Components\Cards\PopoverCardViewModel.cs">
-        <DependentUpon>PopoverCard.razor</DependentUpon>
+      <Compile Update="Components\Cards\DialogCardViewModel.cs">
+        <DependentUpon>DialogCard.razor</DependentUpon>
       </Compile>
       <Compile Update="Backend\Bases\INamedXmlDataModel.cs">
         <DependentUpon>NamedXmlDataModelBase.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Components\TestViewModel.cs">
+        <DependentUpon>Test.razor</DependentUpon>
+      </Compile>
+      <Compile Update="Views\IArmorModsViewModel.cs">
+        <DependentUpon>ArmorModsViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Views\ArmorModsViewModel.cs">
+        <DependentUpon>ArmorModsView.razor</DependentUpon>
       </Compile>
     </ItemGroup>
 </Project>

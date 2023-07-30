@@ -4,7 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace ChummerDBRazorLibrary.Components.Cards;
 
-public partial class PopoverCardViewModel: ViewModelBase
+public partial class DialogCardViewModel: ViewModelBase
 {
     [ObservableProperty]
     private bool _open;

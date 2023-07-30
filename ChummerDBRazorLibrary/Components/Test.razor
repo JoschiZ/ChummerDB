@@ -1,0 +1,20 @@
+@inherits MvvmComponentBase<TestViewModel>
+@inject ILogger<Test> Logger
+
+<h3>Test</h3>
+
+@code {
+    protected override void OnInitialized()
+    {
+        Console.WriteLine("I got Initialized");
+        base.OnInitialized();
+    }
+
+    protected override Task OnParametersSetAsync()
+    {
+        Logger.LogError("Test Log");
+        Console.WriteLine("On Param Set");
+        return base.OnParametersSetAsync();
+    }
+
+}

@@ -26,6 +26,7 @@ public static class ServiceCollectionExtensions
         services.AddTransient<ISpellsViewModel, SpellsViewModel>();
         services.AddTransient<IComplexFormsViewModel, ComplexFormsViewModel>();
         services.AddTransient<IArmorsViewModel, ArmorsViewModel>();
+        services.AddTransient<IArmorModsViewModel, ArmorModsViewModel>();
         
         // Components
         services.AddTransient<SpellCardViewModel>();
@@ -34,7 +35,8 @@ public static class ServiceCollectionExtensions
         services.AddTransient<ArmorCardViewModel>();
         services.AddTransient<BonusCardViewModel>();
         services.AddTransient<ArmorCardViewModel>();
-        services.AddTransient<ArmorModViewModel>();
+        services.AddTransient<ArmorModCardViewModel>();
+        services.AddTransient<TestViewModel>();
 
         services.RegisterDynamicCards();
         return services;
@@ -42,8 +44,8 @@ public static class ServiceCollectionExtensions
 
     private static IServiceCollection RegisterDynamicCards(this IServiceCollection services)
     {
-        services.AddTransient<DynamicCardViewModel<ArmorMod>>();
-        services.AddTransient<PopoverCardViewModel>();
+        services.AddTransient(typeof(DynamicCardViewModel<>));
+        services.AddTransient<DialogCardViewModel>();
         
 
         return services;

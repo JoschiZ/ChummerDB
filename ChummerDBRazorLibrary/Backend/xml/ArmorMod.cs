@@ -5,7 +5,7 @@ using ChummerDBRazorLibrary.Backend.xml.Interfaces;
 namespace ChummerDBRazorLibrary.Backend.xml;
 
 [XmlRoot(ElementName="mod")]
-public class ArmorMod: IHasSource, IHasName
+public class ArmorMod: IHasSource, IHasName, IHasCost
 { 
 
 	[XmlElement(ElementName="id")] 
@@ -24,7 +24,7 @@ public class ArmorMod: IHasSource, IHasName
 	public int MaxRating { get; set; } 
 
 	[XmlElement(ElementName="armorcapacity")] 
-	public string ArmorCapacity { get; set; } = string.Empty;
+	public string NeededCapacity { get; set; } = string.Empty;
 
 	[XmlElement(ElementName = "avail")] 
 	public string Availability { get; set; } = string.Empty;
@@ -37,6 +37,12 @@ public class ArmorMod: IHasSource, IHasName
 
 	[XmlElement(ElementName="page")] 
 	public int Page { get; set; } 
+	
+	[XmlElement(ElementName="gearcapacity")] 
+	public int Capacity { get; set; }
+
+	[XmlElement(ElementName = "addoncategory")]
+	public List<string> AddonCategory { get; set; } = new ();
 
 	[XmlArray("bonus")]
 	[XmlArrayItem("fatigueresist", typeof(FatigueResistBonus))]
@@ -53,13 +59,7 @@ public class ArmorMod: IHasSource, IHasName
 	[XmlArrayItem("toxincontactresist", typeof(ContactToxinResist))]
 	[XmlArrayItem("pathogencontactresist", typeof(PathogenContactResist))]
 	public List<BaseBonus> Bonuses { get; set; } = new();
-
-	[XmlElement(ElementName="gearcapacity")] 
-	public int GearCapacity { get; set; }
-
-	[XmlElement(ElementName = "addoncategory")]
-	public List<string> AddonCategory { get; set; } = new ();
-
+    
 	[XmlArray("wirelessbonus")]
 	[XmlArrayItem("fatigueresist", typeof(FatigueResistBonus))]
 	[XmlArrayItem("limitmodifier", typeof(LimitBonus))]

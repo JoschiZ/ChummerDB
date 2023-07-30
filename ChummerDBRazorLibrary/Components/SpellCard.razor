@@ -1,5 +1,6 @@
 @using ChummerDBRazorLibrary.Backend.xml
 @inherits MvvmComponentBase<SpellCardViewModel>
+@implements ICard<Spell>
 
 @if (ViewModel.Spell is not null)
 {
@@ -7,7 +8,8 @@
         <MudCardHeader>
             <CardHeaderContent>
                 <MudStack Row Justify="Justify.SpaceBetween">
-                    <MudText Typo="Typo.h6" Color="Color.Primary">@ViewModel.Spell.Name</MudText><DisplaySource SourceObject="ViewModel.Spell"></DisplaySource>
+                    <MudText Typo="Typo.h6" Color="Color.Primary">@ViewModel.Spell.Name</MudText>
+                    <DisplaySource SourceObject="ViewModel.Spell"></DisplaySource>
                 </MudStack>
                 @if (ViewModel.Spell.Descriptor != string.Empty)
                 {
@@ -41,10 +43,10 @@
 
 @code {
     [Parameter]
-    public Spell? Spell { get; set; }
+    public Spell? Item { get; set; }
     
     protected override void OnParametersSet()
     {
-        ViewModel.Spell = Spell;
+        ViewModel.Spell = Item;
     }
 }
