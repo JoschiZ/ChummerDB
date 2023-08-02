@@ -1,3 +1,5 @@
+using System.IO.Compression;
+using System.Text;
 using ChummerDBRazorLibrary.Backend.Interfaces;
 
 namespace ChummerDBWASM.Backend;
@@ -12,8 +14,15 @@ public class XmlDataProvider: IXmlDataProvider
     private HttpClient HttpClient { get; }
     
 
-    public Task<Stream> GetData(string path)
+    public async Task<Stream> GetData(string path)
     {
-        return HttpClient.GetStreamAsync("data/" + path);
+        var stream = HttpClient.GetStreamAsync("data/" + path + ".zz");
+
+        var ms = new MemoryStream();
+        //Sadly Brotli is not supported on browsers, could have saved some of those sweet sweet kB download size :/
+        await using var decompressor = new DeflateStream(await stream, CompressionMode.Decompress);
+        await decompressor.CopyToAsync(ms);
+        ms.Position = 0;
+        return ms;
     }
 }

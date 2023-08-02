@@ -104,5 +104,8 @@
       <Compile Update="Views\ArmorModsViewModel.cs">
         <DependentUpon>ArmorModsView.razor</DependentUpon>
       </Compile>
+      <Compile Update="Views\GearsViewModel.cs">
+        <DependentUpon>GearsView.razor</DependentUpon>
+      </Compile>
     </ItemGroup>
 </Project>
