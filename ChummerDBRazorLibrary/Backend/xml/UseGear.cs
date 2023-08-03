@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 namespace ChummerDBRazorLibrary.Backend.xml;
 
 [XmlRoot("usegear")]
-public class Gear
+public class UseGear
 {
     [XmlText]
     public string? NameNode { get; set; }

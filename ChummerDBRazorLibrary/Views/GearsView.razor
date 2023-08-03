@@ -1,0 +1,15 @@
+@inherits MvvmComponentBase<GearsViewModel>
+@inject ILogger<GearsView> Logger
+
+@if (ViewModel.Gears is null)
+{
+    <MudProgressCircular Indeterminate></MudProgressCircular>
+}
+else
+{
+    <p>Loaded</p>
+}
+
+@code {
+    
+}

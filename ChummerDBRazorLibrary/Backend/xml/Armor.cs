@@ -38,7 +38,7 @@ public class Armor: IHasSource, IHasCost, IHasName
 	//TODO: Add cards linked to the gears
 	[XmlArray("gears")]
 	[XmlArrayItem("usegear")]
-	public List<Gear> Gears { get; set; } = new(); 
+	public List<UseGear> Gears { get; set; } = new(); 
 	
 	
 	[XmlElement(ElementName="addmodcategory")] 

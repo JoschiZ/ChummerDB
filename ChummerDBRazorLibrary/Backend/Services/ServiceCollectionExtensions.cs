@@ -27,6 +27,7 @@ public static class ServiceCollectionExtensions
         services.AddTransient<IComplexFormsViewModel, ComplexFormsViewModel>();
         services.AddTransient<IArmorsViewModel, ArmorsViewModel>();
         services.AddTransient<IArmorModsViewModel, ArmorModsViewModel>();
+        services.AddTransient<GearsViewModel>();
         
         // Components
         services.AddTransient<SpellCardViewModel>();
@@ -58,6 +59,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IComplexFormsModel, ComplexFormsModel>();
         services.AddSingleton<IArmorsModel, ArmorsModel>();
         services.AddSingleton<IArmorModsModel, ArmorModsModel>();
+        services.AddSingleton<GearsModel>();
         return services;
     }
 }
