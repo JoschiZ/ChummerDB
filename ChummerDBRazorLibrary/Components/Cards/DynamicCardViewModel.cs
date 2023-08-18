@@ -2,7 +2,6 @@ using ChummerDBRazorLibrary.Backend.Bases;
 using ChummerDBRazorLibrary.Backend.Services;
 using ChummerDBRazorLibrary.Backend.xml.Interfaces;
 using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 
 namespace ChummerDBRazorLibrary.Components.Cards;
 
@@ -27,8 +26,11 @@ public partial class DynamicCardViewModel<TItem>: ViewModelBase where TItem: IHa
             SetItemParam(Item);
             return;
         }
-        
-        var model = _modelProvider.GetNamedModel<TItem>();
+
+        if (!_modelProvider.TryGetNamedXmlDataModel<TItem>(out var model))
+        {
+            return;
+        }
         Item = await model.GetItemByName(ItemName);
 
         if (Item is not null)

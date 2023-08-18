@@ -1,7 +1,10 @@
+using System.Diagnostics.CodeAnalysis;
+using ChummerDBRazorLibrary.Backend.Bases;
 using ChummerDBRazorLibrary.Backend.Interfaces;
 using ChummerDBRazorLibrary.Backend.Models;
 using ChummerDBRazorLibrary.Backend.xml;
 using ChummerDBRazorLibrary.Backend.xml.Bonus;
+using ChummerDBRazorLibrary.Backend.xml.Gear;
 using ChummerDBRazorLibrary.Components;
 using ChummerDBRazorLibrary.Components.Cards;
 using ChummerDBRazorLibrary.Views;
@@ -55,11 +58,20 @@ public static class ServiceCollectionExtensions
     private static IServiceCollection RegisterModels(this IServiceCollection services)
     {
         services.AddSingleton<ISpellsModel, SpellsModel>();
+        ModelProvider.RegisterModel<Spell, ISpellsModel>();
+        
         services.AddSingleton<IBooksModel, BooksModel>();
+        ModelProvider.RegisterModel<Book, IBooksModel>();
+        
         services.AddSingleton<IComplexFormsModel, ComplexFormsModel>();
         services.AddSingleton<IArmorsModel, ArmorsModel>();
+        
         services.AddSingleton<IArmorModsModel, ArmorModsModel>();
+        ModelProvider.RegisterModel<ArmorMod, IArmorModsModel>();
+        
         services.AddSingleton<GearsModel>();
+        ModelProvider.RegisterModel<Gear, GearsModel>();
+        
         return services;
     }
 }
