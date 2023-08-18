@@ -1,7 +1,5 @@
-using System.Xml;
-using System.Xml.Schema;
+using System.Runtime.Serialization;
 using System.Xml.Serialization;
-using ChummerDBRazorLibrary.Backend.Util;
 
 namespace ChummerDBRazorLibrary.Backend.xml.Gear;
 
@@ -11,6 +9,7 @@ public class GearsXmlRecord
 {
     [XmlArray("gears")]
     [XmlArrayItem("gear", typeof(Gear))]
-    [XmlArrayItem("Ammunition", typeof(Ammunition))]
-    public List<Gear> Gears { get; } = new();
+    [XmlArrayItem("Ammunition", typeof(Ammunition))] // This Element is created in a TransFormer
+    [XmlArrayItem("ElectronicGear", typeof(ElectronicGear))] // This Element is created in a TransFormer
+    public List<Gear> AllGears { get; } = new();
 }

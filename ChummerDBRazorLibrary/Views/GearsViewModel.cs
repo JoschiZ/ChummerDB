@@ -11,7 +11,7 @@ public partial class GearsViewModel : ViewModelBase
     private readonly GearsModel _model;
 
     [ObservableProperty]
-    private ReadOnlyObservableCollection<Gear>? _gears;
+    private ReadOnlyObservableCollection<Gear>? items;
 
     public GearsViewModel(GearsModel model)
     {
@@ -20,8 +20,8 @@ public partial class GearsViewModel : ViewModelBase
 
     public override async Task Loaded()
     {
-        var items = await _model.GetItems();
-        Gears = new ReadOnlyObservableCollection<Gear>(new ObservableCollection<Gear>(items));
+        var itemsList = await _model.GetItems();
+        Items = new ReadOnlyObservableCollection<Gear>(new ObservableCollection<Gear>(itemsList));
     }
     
 }
