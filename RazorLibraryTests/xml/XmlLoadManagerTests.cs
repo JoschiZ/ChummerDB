@@ -1,7 +1,7 @@
 using ChummerDBRazorLibrary.Backend.Interfaces;
 using ChummerDBRazorLibrary.Backend.xml;
+using Microsoft.Extensions.Logging;
 using NSubstitute;
-using Xunit.Abstractions;
 using Xunit.Sdk;
 
 namespace RazorLibraryTests.xml;
@@ -10,11 +10,12 @@ public class XmlLoadManagerTests
 {
     private readonly IXmlDataProvider _xmlDataProvider;
     private readonly XmlLoadManager _xmlLoadManager;
-
+    
     public XmlLoadManagerTests()
     {
         _xmlDataProvider = Substitute.For<IXmlDataProvider>();
-        _xmlLoadManager = new XmlLoadManager(_xmlDataProvider);
+        var _logger = Substitute.For<ILogger<XmlLoadManager>>();
+        _xmlLoadManager = new XmlLoadManager(_xmlDataProvider, _logger);
     }
 
     public static IEnumerable<object[]> GetXmlStreams()

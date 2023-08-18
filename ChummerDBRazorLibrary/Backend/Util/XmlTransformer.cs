@@ -10,10 +10,26 @@ public static class XmlTransformationManager
     private const string GearsXsl = """
                                     <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
                                         <xsl:output method="xml" indent="yes"/>
-                                        <xsl:template match="gear">
+                                        <xsl:template match="gears/gear">
                                         <xsl:choose>
                                             <xsl:when test='category = "Ammunition"'>
-                                                <xsl:element name="{translate(translate(category, ' ', ''), '/', '')}">
+                                                <xsl:element name="Ammunition">
+                                                    <xsl:apply-templates select="node()|@*"/>
+                                                </xsl:element>
+                                            </xsl:when>
+                                            <xsl:when test='category = "Commlink Accessories" or
+                                                            category = "Commlink/Cyberdeck Form Factors" or
+                                                            category = "Commlinks" or
+                                                            category = "Commlink Accessories" or
+                                                            category = "Custom Cyberdeck Attributes" or
+                                                            category = "Cyberdeck Modules" or
+                                                            category = "Cyberdecks" or
+                                                            category = "Cyberterminals" or
+                                                            category = "Electronic Modification" or
+                                                            category = "Entertainment" or
+                                                            category = "RFID Tags" or
+                                                            category = "Rigger Command Consoles"'>
+                                                <xsl:element name="ElectronicGear">
                                                     <xsl:apply-templates select="node()|@*"/>
                                                 </xsl:element>
                                             </xsl:when>

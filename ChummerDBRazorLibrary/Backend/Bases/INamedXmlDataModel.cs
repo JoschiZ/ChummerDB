@@ -1,7 +1,6 @@
-using ChummerDBRazorLibrary.Backend.Bases;
 using ChummerDBRazorLibrary.Backend.xml.Interfaces;
 
-namespace ChummerDBRazorLibrary.Backend.Interfaces;
+namespace ChummerDBRazorLibrary.Backend.Bases;
 
 public interface INamedXmlDataModel<T>: IXmlDataModelBase<T> where T: IHasName
 {

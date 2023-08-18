@@ -1,0 +1,1 @@
+- Maybe add https://github.com/jsakamoto/BlazorWasmPreRendering.Build at some point

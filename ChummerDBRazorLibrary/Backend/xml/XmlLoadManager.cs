@@ -3,12 +3,14 @@ using System.Xml.Serialization;
 using ChummerDBRazorLibrary.Backend.Interfaces;
 using ChummerDBRazorLibrary.Backend.Util;
 using ChummerDBRazorLibrary.Backend.xml.Gear;
+using Microsoft.Extensions.Logging;
 
 namespace ChummerDBRazorLibrary.Backend.xml;
 
 public class XmlLoadManager : IXmlLoadManager
 {
     private readonly IXmlDataProvider _xmlDataProvider;
+    private readonly ILogger<XmlLoadManager> _logger;
     
     public static readonly Dictionary<Type, string> FilePaths = new()
     {
@@ -21,9 +23,10 @@ public class XmlLoadManager : IXmlLoadManager
 
     private static Dictionary<Type, object?> XmlObjectCache { get; } = new();
 
-    public XmlLoadManager(IXmlDataProvider xmlDataProvider)
+    public XmlLoadManager(IXmlDataProvider xmlDataProvider, ILogger<XmlLoadManager> logger)
     {
         _xmlDataProvider = xmlDataProvider;
+        _logger = logger;
     }
     
     public async Task<T> GetXml<T>()
@@ -40,9 +43,11 @@ public class XmlLoadManager : IXmlLoadManager
     
     private async Task<T> LoadXmlAsync<T>()
     {
+        _logger.LogTrace("Start Loading of {Type}", nameof(T));
         var stream = await _xmlDataProvider.GetData(FilePaths[typeof(T)]);
         if (XmlTransformationManager.ShouldTransform<T>())
         {
+            _logger.LogTrace("Transforming XML of {Type}", nameof(T));
            stream = XmlTransformationManager.TransformXml<T>(stream);
         }
         
