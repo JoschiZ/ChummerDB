@@ -1,0 +1,39 @@
+@inherits MvvmComponentBase<IDynamicCardViewModel<TItem>>
+@typeparam TItem where TItem: ChummerDB.Blazor.ComponentLibrary.Backend.xml.Interfaces.IHasName
+@typeparam TCard where TCard : ICard<TItem>
+
+@if (ViewModel.Item is not null)
+{
+    <DynamicComponent Type="ViewModel.CardType" Parameters="ViewModel.Parameters"></DynamicComponent>
+}
+else
+{
+    <MudText>Item not found</MudText>
+    <MudProgressCircular Indeterminate="true"></MudProgressCircular>
+}
+
+
+
+@code {
+
+    [Parameter]
+    public IDictionary<string, object>? Parameters { get; set; }
+
+    [Parameter]
+    public TItem? Item { get; set; }
+
+    [Parameter, EditorRequired]
+    public required string ItemName { get; set; }
+
+
+
+    protected override Task OnParametersSetAsync()
+    {
+        ViewModel.Parameters = Parameters;
+        ViewModel.ItemName = ItemName;
+        ViewModel.Item = Item;
+        ViewModel.CardType = typeof(TCard);
+        return ViewModel.OnParametersSetAsync();
+    }
+
+}

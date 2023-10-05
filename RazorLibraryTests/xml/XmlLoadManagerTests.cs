@@ -1,5 +1,5 @@
-using ChummerDBRazorLibrary.Backend.Interfaces;
-using ChummerDBRazorLibrary.Backend.xml;
+using ChummerDB.Blazor.ComponentLibrary.Backend.Interfaces;
+using ChummerDB.Blazor.ComponentLibrary.Backend.xml;
 using Microsoft.Extensions.Logging;
 using NSubstitute;
 using Xunit.Sdk;

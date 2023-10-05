@@ -1,0 +1,19 @@
+@using ChummerDB.Blazor.ComponentLibrary.Backend.xml.Interfaces
+@inherits MvvmComponentBase<IDisplaySourceViewModel>
+
+@if(ViewModel.SourceObject is not null)
+{
+    <MudTooltip Text="@ViewModel.Book?.Name">
+        <MudChip Variant="Variant.Outlined" Size="Size.Small" Color="Color.Info">@ViewModel.SourceObject.Source : @ViewModel.SourceObject.Page</MudChip>
+    </MudTooltip>
+}
+
+@code {
+    [Parameter]
+    public IHasSource? SourceObject { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        ViewModel.SourceObject = SourceObject;
+    }
+}

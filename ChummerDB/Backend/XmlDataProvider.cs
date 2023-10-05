@@ -1,4 +1,4 @@
-using ChummerDBRazorLibrary.Backend.Interfaces;
+using ChummerDB.Blazor.ComponentLibrary.Backend.Interfaces;
 
 namespace ChummerDB.Backend;
 

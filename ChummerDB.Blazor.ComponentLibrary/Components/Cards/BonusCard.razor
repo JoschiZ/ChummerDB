@@ -1,0 +1,33 @@
+@using ChummerDB.Blazor.ComponentLibrary.Backend.xml.Bonus
+@inherits MvvmComponentBase<IBonusCardViewModel>
+@implements ICard<IEnumerable<BaseBonus>>
+
+@if (ViewModel.Bonuses is not null && ViewModel.Bonuses.Any())
+{
+    <MudCard Outlined>
+        <MudCardContent>
+            <MudText Color="Color.Info" Typo="Typo.subtitle1">@Title</MudText>
+            @foreach (var bonus in ViewModel.Bonuses)
+            {
+                <MudText>@bonus.DisplayString</MudText>
+            }
+        </MudCardContent>
+    </MudCard>
+}
+
+
+
+@code {
+
+    [Parameter]
+    public required IEnumerable<BaseBonus>? Item { get; set; } = Enumerable.Empty<BaseBonus>();
+
+    [Parameter]
+    public string Title { get; set; } = "Bonuses";
+    
+    protected override void OnParametersSet()
+    {
+        ViewModel.Bonuses = Item;
+    }
+
+}

@@ -80,7 +80,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ChummerDBRazorLibrary\ChummerDBRazorLibrary.csproj" />
+      <ProjectReference Include="..\ChummerDB.Blazor.ComponentLibrary\ChummerDB.Blazor.ComponentLibrary.csproj" />
     </ItemGroup>
 
 </Project>
