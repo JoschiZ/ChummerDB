@@ -1,6 +1,7 @@
-@using ChummerDB.Blazor.ComponentLibrary.Backend.xml
-@inherits MvvmComponentBase<IArmorModCardViewModel>
-@implements ICard<ArmorMod>
+
+@using ChummerDB.Shared.xml
+@inherits ChummerDB.Blazor.ComponentLibrary.Bases.MvvmComponentBase<ChummerDB.Shared.ViewModels.IArmorModCardViewModel>
+@implements ChummerDB.Shared.ViewModels.ICard<ArmorMod>
 
 @if (ViewModel.ArmorMod is not null)
 {

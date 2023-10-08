@@ -8,6 +8,7 @@
         <UseMaui>true</UseMaui>
         <SingleProject>true</SingleProject>
         <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
 
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
@@ -16,9 +17,69 @@
         <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
     </PropertyGroup>
-
+    
     <ItemGroup>
-      <Folder Include="ViewModel\" />
+      <Compile Update="Backend\Models\IArmorModsModel.cs">
+        <DependentUpon>ArmorModsModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Backend\Models\IArmorsModel.cs">
+        <DependentUpon>ArmorsModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Backend\Models\IBooksModel.cs">
+        <DependentUpon>BooksModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Backend\Models\IComplexFormsModel.cs">
+        <DependentUpon>ComplexFormsModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Backend\Models\ISpellsModel.cs">
+        <DependentUpon>SpellsModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ViewModels\IArmorCardViewModel.cs">
+        <DependentUpon>ArmorCardViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ViewModels\IArmorModCardViewModel.cs">
+        <DependentUpon>ArmorModsViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ViewModels\IArmorModsViewModel.cs">
+        <DependentUpon>ArmorModViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ViewModels\IArmorsViewModel.cs">
+        <DependentUpon>ArmorsViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ViewModels\IBonusCardViewModel.cs">
+        <DependentUpon>BonusCardViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ViewModels\IComplexFormCardViewModel.cs">
+        <DependentUpon>ComplexFormCardViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ViewModels\IComplexFormsViewModel.cs">
+        <DependentUpon>ComplexFormsViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ViewModels\IDialogCardViewModel.cs">
+        <DependentUpon>DialogCardViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ViewModels\IDisplaySourceViewModel.cs">
+        <DependentUpon>DisplaySourceViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ViewModels\IDynamicCardViewModel.cs">
+        <DependentUpon>DynamicCardViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ViewModels\IGearsViewModel.cs">
+        <DependentUpon>GearsViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ViewModels\ISpellCardViewModel.cs">
+        <DependentUpon>SpellCardViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ViewModels\ISpellsViewModel.cs">
+        <DependentUpon>SpellsViewModel.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Bases\IViewModelBase.cs">
+        <DependentUpon>ViewModelBase.cs</DependentUpon>
+      </Compile>
+    </ItemGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
     </ItemGroup>
 
 </Project>

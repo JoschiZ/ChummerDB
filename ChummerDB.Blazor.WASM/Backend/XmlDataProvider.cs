@@ -1,6 +1,6 @@
 using System.IO.Compression;
 using System.Text;
-using ChummerDB.Blazor.ComponentLibrary.Backend.Interfaces;
+using ChummerDB.Shared.Interfaces;
 
 namespace ChummerDB.Blazor.WASM.Backend;
 

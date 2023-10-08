@@ -1,6 +1,6 @@
-@inherits MvvmComponentBase<IDialogCardViewModel>
-@typeparam TItem where TItem: ChummerDB.Blazor.ComponentLibrary.Backend.xml.Interfaces.IHasName
-@typeparam TCard where TCard : ICard<TItem>
+@inherits ChummerDB.Blazor.ComponentLibrary.Bases.MvvmComponentBase<ChummerDB.Shared.ViewModels.IDialogCardViewModel>
+@typeparam TItem where TItem: ChummerDB.Shared.xml.Interfaces.IHasName
+@typeparam TCard where TCard : ChummerDB.Shared.ViewModels.ICard<TItem>
 
 @*
 <MudPopover Open="ViewModel.Open">

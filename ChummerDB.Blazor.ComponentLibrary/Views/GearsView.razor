@@ -1,5 +1,5 @@
-@using ChummerDB.Blazor.ComponentLibrary.Backend.xml.Gear
-@inherits MvvmComponentBase<IGearsViewModel>
+@using ChummerDB.Shared.xml.Gear
+@inherits ChummerDB.Blazor.ComponentLibrary.Bases.MvvmComponentBase<ChummerDB.Shared.ViewModels.IGearsViewModel>
 @inject ILogger<GearsView> Logger
 
 @if (ViewModel.Items is null)

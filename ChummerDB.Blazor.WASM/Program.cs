@@ -1,9 +1,9 @@
-using ChummerDB.Blazor.ComponentLibrary.Backend.Interfaces;
-using ChummerDB.Blazor.ComponentLibrary.Backend.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using ChummerDB.Blazor.WASM;
 using ChummerDB.Blazor.WASM.Backend;
+using ChummerDB.Shared.Interfaces;
+using ChummerDB.Shared.Services;
 using MudBlazor.Services;
 using Serilog;
 using Serilog.Core;

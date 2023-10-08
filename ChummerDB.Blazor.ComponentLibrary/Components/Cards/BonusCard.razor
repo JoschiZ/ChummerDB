@@ -1,6 +1,7 @@
-@using ChummerDB.Blazor.ComponentLibrary.Backend.xml.Bonus
-@inherits MvvmComponentBase<IBonusCardViewModel>
-@implements ICard<IEnumerable<BaseBonus>>
+
+@using ChummerDB.Shared.xml.Bonus
+@inherits ChummerDB.Blazor.ComponentLibrary.Bases.MvvmComponentBase<ChummerDB.Shared.ViewModels.IBonusCardViewModel>
+@implements ChummerDB.Shared.ViewModels.ICard<IEnumerable<BaseBonus>>
 
 @if (ViewModel.Bonuses is not null && ViewModel.Bonuses.Any())
 {

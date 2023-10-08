@@ -1,6 +1,6 @@
 ﻿using ChummerDB.Backend;
-using ChummerDB.Blazor.ComponentLibrary.Backend.Interfaces;
-using ChummerDB.Blazor.ComponentLibrary.Backend.Services;
+using ChummerDB.Shared.Interfaces;
+using ChummerDB.Shared.Services;
 using Microsoft.Extensions.Logging;
 using MudBlazor.Services;
 

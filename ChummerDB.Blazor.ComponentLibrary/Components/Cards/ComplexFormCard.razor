@@ -1,5 +1,6 @@
-@using ChummerDB.Blazor.ComponentLibrary.Backend.xml
-@inherits MvvmComponentBase<IComplexFormCardViewModel>
+
+@using ChummerDB.Shared.xml
+@inherits ChummerDB.Blazor.ComponentLibrary.Bases.MvvmComponentBase<ChummerDB.Shared.ViewModels.IComplexFormCardViewModel>
 
 @if (ViewModel.ComplexForm is not null)
 {

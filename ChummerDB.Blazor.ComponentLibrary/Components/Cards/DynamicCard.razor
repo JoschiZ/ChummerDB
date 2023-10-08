@@ -1,5 +1,5 @@
 @inherits MvvmComponentBase<IDynamicCardViewModel<TItem>>
-@typeparam TItem where TItem: ChummerDB.Blazor.ComponentLibrary.Backend.xml.Interfaces.IHasName
+@typeparam TItem where TItem: IHasName
 @typeparam TCard where TCard : ICard<TItem>
 
 @if (ViewModel.Item is not null)
